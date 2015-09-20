@@ -1,14 +1,14 @@
 package poker;
 
 public class Hand {
-	private String[] cards;
+	private Card[] cards;
 	
 	public Hand() {
 		
 	}
 
-	public Hand(String card1, String card2, String card3, String card4, String card5) {
-		cards = new String[5];
+	public Hand(Card card1, Card card2, Card card3, Card card4, Card card5) {
+		cards = new Card[5];
 		cards[0] = card1;
 		cards[1] = card2;
 		cards[2] = card3;
@@ -18,6 +18,14 @@ public class Hand {
 
 	public boolean isRoyalFlush() {
 		return false;
+	}
+
+	public void setHand(Card card1, Card card2, Card card3, Card card4, Card card5) {
+		cards[0] = card1;
+		cards[1] = card2;
+		cards[2] = card3;
+		cards[3] = card4;
+		cards[4] = card5;
 	}
 	
 }
