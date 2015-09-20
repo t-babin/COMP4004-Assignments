@@ -4,7 +4,7 @@ public class Hand {
 	private Card[] cards;
 	
 	public Hand() {
-		
+		cards = new Card[5];
 	}
 
 	public Hand(Card card1, Card card2, Card card3, Card card4, Card card5) {

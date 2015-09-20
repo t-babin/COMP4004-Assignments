@@ -9,15 +9,18 @@ import poker.Card;
 import poker.Hand;
 
 public class TestHand {
+	
+	private Hand h;
 
 	@Before
 	public void setUp() throws Exception {
+		h = new Hand();
 	}
 
 	@Test
 	public void testRoyalFlush() {
 		//Test for royal flush w/ hearts
-		Hand h = new Hand(new Card("Ten", "Hearts"), new Card("Jack", "Hearts"), new Card("Queen", "Hearts"), new Card("King", "Hearts"), new Card("Ace", "Hearts"));
+		h.setHand(new Card("Ten", "Hearts"), new Card("Jack", "Hearts"), new Card("Queen", "Hearts"), new Card("King", "Hearts"), new Card("Ace", "Hearts"));
 		assertTrue(h.isRoyalFlush());
 		//test for royal flush w/ diamonds
 		h.setHand(new Card("Ten", "Diamonds"), new Card("Jack", "Diamonds"), new Card("Queen", "Diamonds"), new Card("King", "Diamonds"), new Card("Ace", "Diamonds"));
