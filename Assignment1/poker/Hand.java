@@ -17,7 +17,18 @@ public class Hand {
 	}
 
 	public boolean isRoyalFlush() {
-		return false;
+		String tmpSuit = cards[0].getCardSuit();
+		for (int i = 1; i < 5; i++) {
+			if (!cards[i].getCardSuit().equals(tmpSuit)) {
+				return false;
+			}
+		}
+		for (int i = 0; i < 5; i++) {
+			String tmpCardVal = cards[i].getCardValue();
+			if (!(tmpCardVal.equals("Ten") || tmpCardVal.equals("Jack") || tmpCardVal.equals("Queen") || tmpCardVal.equals("King") || tmpCardVal.equals("Ace")))
+				return false;
+		}
+		return true;
 	}
 
 	public void setHand(Card card1, Card card2, Card card3, Card card4, Card card5) {

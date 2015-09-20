@@ -28,6 +28,8 @@ public class TestHand {
 		//test for royal flush w/ clubs
 		h.setHand(new Card("Ten", "Clubs"), new Card("Jack", "Clubs"), new Card("Queen", "Clubs"), new Card("King", "Clubs"), new Card("Ace", "Clubs"));
 		assertTrue(h.isRoyalFlush());
+		h.setHand(new Card("One", "Clubs"), new Card("Two", "Diamonds"), new Card("Two", "Spades"), new Card("King", "Clubs"), new Card("Six", "Hearts"));
+		assertFalse(h.isRoyalFlush());
 	}
 
 }
