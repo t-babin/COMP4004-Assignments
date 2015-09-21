@@ -36,6 +36,15 @@ public class Hand {
 	}
 	
 	/*
+	 * Method to check whether a hand is a straight flush or not.
+	 * (1) Check to see all the cards are the same suit
+	 * (2) Check to see all the cards are within a 5 value range
+	 */
+	public boolean isStraightFlush() {
+		return false;
+	}
+	
+	/*
 	 * Checks if the list of cards have face values within a certain range.
 	 */
 	private boolean cardsWithinRange(int lowCard, int highCard) {
@@ -74,5 +83,7 @@ public class Hand {
 			}
 		});
 	}
+
+	
 	
 }

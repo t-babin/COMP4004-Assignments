@@ -31,8 +31,39 @@ public class TestHand {
 		//test for royal flush w/ clubs
 		h.setHand(new Card("Ten", "Clubs"), new Card("Jack", "Clubs"), new Card("Queen", "Clubs"), new Card("King", "Clubs"), new Card("Ace", "Clubs"));
 		assertTrue(h.isRoyalFlush());
+		//test to see that this hand is NOT a royal flush
 		h.setHand(new Card("One", "Clubs"), new Card("Two", "Diamonds"), new Card("Two", "Spades"), new Card("King", "Clubs"), new Card("Six", "Hearts"));
 		assertFalse(h.isRoyalFlush());
+	}
+	
+	@Test
+	public void testStraightFlush() {
+		h.setHand(new Card("Two", "Hearts"), new Card("Three", "Hearts"), new Card("Four", "Hearts"), new Card("Five", "Hearts"), new Card("Six", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Three", "Hearts"), new Card("Four", "Hearts"), new Card("Five", "Hearts"), new Card("Six", "Hearts"), new Card("Seven", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Four", "Hearts"), new Card("Five", "Hearts"), new Card("Six", "Hearts"), new Card("Seven", "Hearts"), new Card("Eight", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Five", "Hearts"), new Card("Six", "Hearts"), new Card("Seven", "Hearts"), new Card("Eight", "Hearts"), new Card("Nine", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Six", "Hearts"), new Card("Seven", "Hearts"), new Card("Eight", "Hearts"), new Card("Nine", "Hearts"), new Card("Ten", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Seven", "Hearts"), new Card("Eight", "Hearts"), new Card("Nine", "Hearts"), new Card("Ten", "Hearts"), new Card("Jack", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Eight", "Hearts"), new Card("Nine", "Hearts"), new Card("Ten", "Hearts"), new Card("Jack", "Hearts"), new Card("Queen", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Nine", "Hearts"), new Card("Ten", "Hearts"), new Card("Jack", "Hearts"), new Card("Queen", "Hearts"), new Card("King", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Ten", "Hearts"), new Card("Jack", "Hearts"), new Card("Queen", "Hearts"), new Card("King", "Hearts"), new Card("Ace", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Jack", "Hearts"), new Card("Queen", "Hearts"), new Card("King", "Hearts"), new Card("Ace", "Hearts"), new Card("Two", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Queen", "Hearts"), new Card("King", "Hearts"), new Card("Ace", "Hearts"), new Card("Two", "Hearts"), new Card("Three", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("King", "Hearts"), new Card("Ace", "Hearts"), new Card("Two", "Hearts"), new Card("Three", "Hearts"), new Card("Four", "Hearts"));
+		assertTrue(h.isStraightFlush());
+		h.setHand(new Card("Ace", "Hearts"), new Card("Two", "Hearts"), new Card("Three", "Hearts"), new Card("Four", "Hearts"), new Card("Five", "Hearts"));
+		assertTrue(h.isStraightFlush());
 	}
 
 }
