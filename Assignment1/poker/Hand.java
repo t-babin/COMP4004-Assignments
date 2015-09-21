@@ -32,7 +32,7 @@ public class Hand {
 				return false;
 			}
 		}
-		return cardsWithinRange(8, 14);
+		return cardsWithinRange(9, 13);
 	}
 	
 	/*
@@ -41,7 +41,14 @@ public class Hand {
 	 * (2) Check to see all the cards are within a 5 value range
 	 */
 	public boolean isStraightFlush() {
-		return false;
+		String tmpSuit = cards.get(0).getCardSuit();
+		for (int i = 1; i < 5; i++) {
+			if (!cards.get(i).getCardSuit().equals(tmpSuit))
+				return false;
+		}
+		sortByCardValue(cards);
+				
+		return checkForStraight();
 	}
 	
 	/*
@@ -50,10 +57,32 @@ public class Hand {
 	private boolean cardsWithinRange(int lowCard, int highCard) {
 		for (int i = 0; i < 5; i++) {
 			int tmpCardVal = cards.get(i).getCardIntValue();
-			if (!(tmpCardVal > lowCard && tmpCardVal < highCard)) 
+			if (!(tmpCardVal >= lowCard && tmpCardVal <= highCard)) 
 				return false;
 		}
 		return true;
+	}
+	
+	/*
+	 * Method to determine if a hand contains a straight.
+	 * The difference in value between cards in increasing order should be either 1 or 9.
+	 */
+	private boolean checkForStraight() {
+		boolean diff = false;
+		for (int i = 0; i < 5; i++) {
+			int first = cards.get(i).getCardIntValue();
+			int second;
+			if (i == 4)
+				break;
+			else
+				second = cards.get(i+1).getCardIntValue();
+//			System.out.println(second + "-" + first + "=" + (second - first));
+			if ((second - first) == 1 || (second - first) == 9)
+				diff = true;
+			else
+				return false;
+		}
+		return diff;
 	}
 
 	public void setHand(Card card1, Card card2, Card card3, Card card4, Card card5) {
@@ -82,8 +111,5 @@ public class Hand {
 				return Integer.valueOf(c1.getCardIntValue()).compareTo(c2.getCardIntValue());
 			}
 		});
-	}
-
-	
-	
+	}	
 }

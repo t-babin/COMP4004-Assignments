@@ -25,4 +25,5 @@ public class Card {
 
 	public void setCardSuit(String cardSuit) { this.cardSuit = cardSuit; }
 
+	public String toString() { return cardValue + cardSuit + "(" + cardIntValue + ")"; }
 }
