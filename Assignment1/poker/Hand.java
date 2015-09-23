@@ -51,6 +51,10 @@ public class Hand {
 		return checkForStraight();
 	}
 	
+	public boolean isFourOfAKind() {
+		return false;
+	}
+	
 	/*
 	 * Checks if the list of cards have face values within a certain range.
 	 */

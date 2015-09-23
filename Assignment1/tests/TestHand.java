@@ -71,5 +71,14 @@ public class TestHand {
 		h.setHand(new Card("Two", "Hearts"), new Card("Four", "Clubs"), new Card("Four", "Hearts"), new Card("Nine", "Spades"), new Card("Four", "Diamonds"));
 		assertFalse(h.isStraightFlush());
 	}
+	
+	@Test
+	public void testFourOfAKind() {
+		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("Ace", "Clubs"), new Card("Six", "Clubs"));
+		assertTrue(h.isFourOfAKind());
+		
+		h.setHand(new Card("Ace", "Hearts"), new Card("King", "Diamonds"), new Card("King", "Clubs"), new Card("King", "Hearts"), new Card("Six", "Hearts"));
+		assertFalse(h.isFourOfAKind());
+	}
 
 }
