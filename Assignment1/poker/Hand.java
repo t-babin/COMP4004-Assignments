@@ -150,7 +150,44 @@ public class Hand {
 	 * Checks whether a hand is a three of a kind or not.
 	 */
 	public boolean isThreeOfAKind() {
-		return false;
+		sortByCardValue();
+		int faceValue = cards.get(0).getCardIntValue();
+		int counter = 1;
+		//Case where cards 1-3 are the same
+		for (int i = 1; i < 3; i++) {
+			if (cards.get(i).getCardIntValue() == faceValue) {
+				counter++;
+			}
+		}
+		if (counter == 3)
+			return true;
+		else {
+			faceValue = cards.get(1).getCardIntValue();
+			counter = 1;
+			//case where cards 2-4 are the same
+			for (int i = 2; i < 4; i++) {
+				if (cards.get(i).getCardIntValue() == faceValue)
+					counter++;
+			}
+			if (counter == 3) 
+				return true;
+			else {
+				//case where cards 3-5 are the same
+				faceValue = cards.get(2).getCardIntValue();
+				counter = 1;
+				for (int i = 3; i < 5; i++) {
+					if (cards.get(i).getCardIntValue() == faceValue)
+						counter++;
+					//no need to check any further
+					else
+						return false;
+				}
+				if (counter == 3)
+					return true;
+				else
+					return false;
+			}
+		}
 	}
 	
 	/*
