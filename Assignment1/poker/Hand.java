@@ -119,7 +119,14 @@ public class Hand {
 		}
 		else
 			return false;
-	}	
+	}
+
+	/*
+	 * Method to determine whether a hand is a flush or not.
+	 */
+	public boolean isFlush() {
+		return false;
+	}
 	
 	/*
 	 * Checks if the list of cards have face values within a certain range.

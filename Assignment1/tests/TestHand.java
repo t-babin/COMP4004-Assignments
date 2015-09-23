@@ -95,5 +95,14 @@ public class TestHand {
 		h.setHand(new Card("Ten", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
 		assertFalse(h.isFullHouse());
 	}
+	
+	@Test
+	public void testFlush() {
+		h.setHand(new Card("Ace", "Hearts"), new Card("Ten", "Hearts"), new Card("Five", "Hearts"), new Card("Two", "Hearts"), new Card("King", "Hearts"));
+		assertTrue(h.isFlush());
+		
+		h.setHand(new Card("Ace", "Hearts"), new Card("Ten", "Clubs"), new Card("Four", "Spades"), new Card("Two", "Hearts"), new Card("King", "Hearts"));
+		assertFalse(h.isFlush());
+	}
 
 }
