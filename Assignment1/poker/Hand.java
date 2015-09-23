@@ -128,6 +128,9 @@ public class Hand {
 		return true;
 	}
 	
+	/*
+	 * Method to determine whether a hand contains a straight or not.
+	 */
 	public boolean isStraight() {
 		sortByCardValue();
 		for (int i = 0; i < 4; i++) {
@@ -194,7 +197,30 @@ public class Hand {
 	 * Checks whether a hand has two pairs or not.
 	 */
 	public boolean isTwoPair() {
-		return false;
+		sortByCardValue();
+		//case 1: cards 1,2 form a pair; cards 3,4 form a second pair.
+		if (cards.get(0).getCardIntValue() == cards.get(1).getCardIntValue()) {
+			if (cards.get(2).getCardIntValue() == cards.get(3).getCardIntValue())
+				return true;
+			//case 2: cards 1,2 form a pair; cards 4,5 form a second pair.
+			else {
+				if (cards.get(3).getCardIntValue() == cards.get(4).getCardIntValue())
+					return true;
+				else 
+					return false;
+			}
+		}
+		//case 3: cards 2,3 form a pair; cards 4,5 form a second pair.
+		else {
+			if (cards.get(1).getCardIntValue() == cards.get(2).getCardIntValue()) {
+				if (cards.get(3).getCardIntValue() == cards.get(4).getCardIntValue())
+					return true;
+				else
+					return false;
+			}
+			else 
+				return false;
+		}
 	}
 	
 	/*
