@@ -26,13 +26,10 @@ public class Hand {
 	 * (2) Check to see all the cards are within the range of Ten - Ace
 	 */
 	public boolean isRoyalFlush() {
-		String tmpSuit = cards.get(0).getCardSuit();
-		for (int i = 1; i < 5; i++) {
-			if (!cards.get(i).getCardSuit().equals(tmpSuit)) {
-				return false;
-			}
-		}
-		return cardsWithinRange(9, 13);
+		if (isFlush())
+			return cardsWithinRange(9, 13);
+		else
+			return false;
 	}
 	
 	/*
@@ -41,14 +38,12 @@ public class Hand {
 	 * (2) Check to see all the cards are within a 5 value range
 	 */
 	public boolean isStraightFlush() {
-		String tmpSuit = cards.get(0).getCardSuit();
-		for (int i = 1; i < 5; i++) {
-			if (!cards.get(i).getCardSuit().equals(tmpSuit))
-				return false;
+		if (isFlush()) {
+			sortByCardValue();					
+			return checkForStraight();
 		}
-		sortByCardValue();
-				
-		return checkForStraight();
+		else
+			return false;
 	}
 	
 	/*
@@ -125,7 +120,14 @@ public class Hand {
 	 * Method to determine whether a hand is a flush or not.
 	 */
 	public boolean isFlush() {
-		return false;
+		String tmpSuit = cards.get(0).getCardSuit();
+		//check that the remaining 4 cards in the hand are the same suit as the first card.
+		for (int i = 1; i < 5; i++) {
+			if (!cards.get(i).getCardSuit().equals(tmpSuit)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/*
@@ -150,6 +152,7 @@ public class Hand {
 			int second = cards.get(i+1).getCardIntValue();
 			if ((second - first) != 1) {
 				if ((second - first) == 9) {
+					//This should only happen in the case where the straight is A,2,3,4,5
 					if (!(second == 13) && !(first == 13))
 						return false;
 				}
