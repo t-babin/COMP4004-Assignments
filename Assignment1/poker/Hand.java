@@ -46,7 +46,7 @@ public class Hand {
 			if (!cards.get(i).getCardSuit().equals(tmpSuit))
 				return false;
 		}
-		sortByCardValue(cards);
+		sortByCardValue();
 				
 		return checkForStraight();
 	}
@@ -55,7 +55,7 @@ public class Hand {
 	 * Method to check whether a hand is a four of a kind or not.
 	 */
 	public boolean isFourOfAKind() {
-		sortByCardValue(cards);
+		sortByCardValue();
 		int faceValue = cards.get(0).getCardIntValue();
 		int counter = 1;
 		//case where cards 1-4 have the same face value
@@ -86,7 +86,39 @@ public class Hand {
 	 * Method to check whether a hand is a full house or not.
 	 */
 	public boolean isFullHouse() {
-		return false;
+		sortByCardValue();
+		int faceValue = cards.get(0).getCardIntValue();
+		int counter = 1;
+		for (int i = 1; i < 5; i++) {
+			if (cards.get(i).getCardIntValue() == faceValue)
+				counter++;
+		}
+		if (counter == 3) {
+			faceValue = cards.get(3).getCardIntValue();
+			counter = 1;
+			for (int i = 4; i < 5; i++) {
+				if (cards.get(i).getCardIntValue() == faceValue)
+					counter++;;
+			}
+			if (counter == 2)
+				return true;
+			else
+				return false;
+		}
+		else if (counter == 2) {
+			faceValue = cards.get(2).getCardIntValue();
+			counter = 1;
+			for (int i = 3; i < 5; i++) {
+				if (cards.get(i).getCardIntValue() == faceValue)
+					counter++;;
+			}
+			if (counter == 3)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
 	}	
 	
 	/*
@@ -141,7 +173,7 @@ public class Hand {
 	/*
 	 * Will probably be used for checking straights/straight flushes.
 	 */
-	private void sortByCardValue(ArrayList<Card> cards) { 
+	private void sortByCardValue() { 
 		Collections.sort(cards, new Comparator<Card>() {
 			public int compare(Card c1, Card c2) {
 				return Integer.valueOf(c1.getCardIntValue()).compareTo(c2.getCardIntValue());

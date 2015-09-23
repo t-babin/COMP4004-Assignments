@@ -89,6 +89,9 @@ public class TestHand {
 		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
 		assertTrue(h.isFullHouse());
 		
+		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("King", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
+		assertTrue(h.isFullHouse());
+		
 		h.setHand(new Card("Ten", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
 		assertFalse(h.isFullHouse());
 	}
