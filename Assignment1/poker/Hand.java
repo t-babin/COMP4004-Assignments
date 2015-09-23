@@ -38,10 +38,8 @@ public class Hand {
 	 * (2) Check to see all the cards are within a 5 value range
 	 */
 	public boolean isStraightFlush() {
-		if (isFlush()) {
-			sortByCardValue();					
-			return checkForStraight();
-		}
+		if (isFlush())
+			return isStraight();
 		else
 			return false;
 	}
@@ -130,6 +128,24 @@ public class Hand {
 		return true;
 	}
 	
+	public boolean isStraight() {
+		sortByCardValue();
+		for (int i = 0; i < 4; i++) {
+			int first = cards.get(i).getCardIntValue();
+			int second = cards.get(i+1).getCardIntValue();
+			if ((second - first) != 1) {
+				if ((second - first) == 9) {
+					//This should only happen in the case where the straight is A,2,3,4,5
+					if (!(second == 13) && !(first == 13))
+						return false;
+				}
+				else
+					return false;
+			}
+		}
+		return true;
+	}
+	
 	/*
 	 * Checks if the list of cards have face values within a certain range.
 	 */
@@ -146,22 +162,7 @@ public class Hand {
 	 * Method to determine if a hand contains a straight.
 	 * The difference in value between cards in increasing order should be either 1 or 9.
 	 */
-	private boolean checkForStraight() {
-		for (int i = 0; i < 4; i++) {
-			int first = cards.get(i).getCardIntValue();
-			int second = cards.get(i+1).getCardIntValue();
-			if ((second - first) != 1) {
-				if ((second - first) == 9) {
-					//This should only happen in the case where the straight is A,2,3,4,5
-					if (!(second == 13) && !(first == 13))
-						return false;
-				}
-				else
-					return false;
-			}
-		}
-		return true;
-	}
+	
 
 	public void setHand(Card card1, Card card2, Card card3, Card card4, Card card5) {
 		if (cards.size() != 0) {

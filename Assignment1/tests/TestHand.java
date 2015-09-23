@@ -104,5 +104,14 @@ public class TestHand {
 		h.setHand(new Card("Ace", "Hearts"), new Card("Ten", "Clubs"), new Card("Four", "Spades"), new Card("Two", "Hearts"), new Card("King", "Hearts"));
 		assertFalse(h.isFlush());
 	}
+	
+	@Test
+	public void testStraight() {
+		h.setHand(new Card("Two", "Clubs"), new Card("Three", "Hearts"), new Card("Four", "Diamonds"), new Card("Five", "Spades"), new Card("Six", "Hearts"));
+		assertTrue(h.isStraight());
+		
+		h.setHand(new Card("Nine", "Clubs"), new Card("Three", "Hearts"), new Card("Four", "Diamonds"), new Card("Five", "Spades"), new Card("Six", "Hearts"));
+		assertFalse(h.isStraight());
+	}
 
 }
