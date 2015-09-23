@@ -191,6 +191,13 @@ public class Hand {
 	}
 	
 	/*
+	 * Checks whether a hand has two pairs or not.
+	 */
+	public boolean isTwoPair() {
+		return false;
+	}
+	
+	/*
 	 * Checks if the list of cards have face values within a certain range.
 	 */
 	private boolean cardsWithinRange(int lowCard, int highCard) {
@@ -226,7 +233,8 @@ public class Hand {
 	}
 	
 	/*
-	 * Will probably be used for checking straights/straight flushes.
+	 * Sorts the hand in order from lowest face value to highest.
+	 * Useful for finding straights, pairs, etc.
 	 */
 	private void sortByCardValue() { 
 		Collections.sort(cards, new Comparator<Card>() {

@@ -128,5 +128,20 @@ public class TestHand {
 		h.setHand(new Card("Nine", "Spades"), new Card("Two", "Clubs"), new Card("Two", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
 		assertFalse(h.isThreeOfAKind());
 	}
+	
+	@Test
+	public void testTwoPair() {
+		h.setHand(new Card("Two", "Spades"), new Card("Two", "Clubs"), new Card("Four", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		assertTrue(h.isTwoPair());
+		
+		h.setHand(new Card("Two", "Spades"), new Card("Two", "Clubs"), new Card("Ace", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		assertTrue(h.isTwoPair());
+		
+		h.setHand(new Card("Two", "Spades"), new Card("Four", "Clubs"), new Card("Ace", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		assertTrue(h.isTwoPair());
+		
+		h.setHand(new Card("Two", "Spades"), new Card("Five", "Clubs"), new Card("Jack", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		assertFalse(h.isTwoPair());
+	}
 
 }
