@@ -68,21 +68,21 @@ public class Hand {
 	 * The difference in value between cards in increasing order should be either 1 or 9.
 	 */
 	private boolean checkForStraight() {
-		boolean diff = false;
-		for (int i = 0; i < 5; i++) {
+//		System.out.println(cards);
+		for (int i = 0; i < 4; i++) {
 			int first = cards.get(i).getCardIntValue();
-			int second;
-			if (i == 4)
-				break;
-			else
-				second = cards.get(i+1).getCardIntValue();
+			int second = cards.get(i+1).getCardIntValue();
 //			System.out.println(second + "-" + first + "=" + (second - first));
-			if ((second - first) == 1 || (second - first) == 9)
-				diff = true;
-			else
-				return false;
+			if ((second - first) != 1) {
+				if ((second - first) == 9) {
+					if (!(second == 13) && !(first == 13))
+						return false;
+				}
+				else
+					return false;
+			}
 		}
-		return diff;
+		return true;
 	}
 
 	public void setHand(Card card1, Card card2, Card card3, Card card4, Card card5) {
@@ -111,5 +111,16 @@ public class Hand {
 				return Integer.valueOf(c1.getCardIntValue()).compareTo(c2.getCardIntValue());
 			}
 		});
+	}
+	
+	public String getHand() {
+		String s = "";
+		for (Card c : cards) {
+			s += c.toString() + ",";
+		}
+		
+		s = s.substring(0, s.length()-1);
+		
+		return s;
 	}	
 }
