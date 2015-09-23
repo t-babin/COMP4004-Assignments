@@ -227,7 +227,22 @@ public class Hand {
 	 * Method to check whether any two cards in a hand are a pair.
 	 */
 	public boolean isPair() {
-		return false;
+		sortByCardValue();
+		//case 1: cards 1,2 form a pair.
+		if (cards.get(0).getCardIntValue() == cards.get(1).getCardIntValue())
+			return true;
+		//case 2: cards 2,3 form a pair.
+		else if (cards.get(1).getCardIntValue() == cards.get(2).getCardIntValue())
+			return true;
+		//case 3: cards 3,4 form a pair.
+		else if (cards.get(2).getCardIntValue() == cards.get(3).getCardIntValue())
+			return true;
+		//case 4: cards 4,5 form a pair.
+		else if (cards.get(3).getCardIntValue() == cards.get(4).getCardIntValue())
+			return true;
+		//no pair found.
+		else
+			return false;
 	}
 	
 	/*
