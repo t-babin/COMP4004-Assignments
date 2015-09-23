@@ -86,6 +86,7 @@ public class Hand {
 			if (cards.get(i).getCardIntValue() == faceValue)
 				counter++;
 		}
+		//case where first three cards have the same face value
 		if (counter == 3) {
 			faceValue = cards.get(3).getCardIntValue();
 			counter = 1;
@@ -93,11 +94,13 @@ public class Hand {
 				if (cards.get(i).getCardIntValue() == faceValue)
 					counter++;;
 			}
+			//next two cards have the same face value
 			if (counter == 2)
 				return true;
 			else
 				return false;
 		}
+		//case where the first two cards have the same face value
 		else if (counter == 2) {
 			faceValue = cards.get(2).getCardIntValue();
 			counter = 1;
@@ -105,6 +108,7 @@ public class Hand {
 				if (cards.get(i).getCardIntValue() == faceValue)
 					counter++;;
 			}
+			//next three cards have the same face value
 			if (counter == 3)
 				return true;
 			else

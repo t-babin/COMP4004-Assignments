@@ -15,6 +15,10 @@ public class Card {
 		cardIntValue = validCardVals.indexOf(cardValue) + 1;
 	}
 
+	public Card(String input) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCardIntValue() { return cardIntValue; }
 
 	public String getCardValue() { return cardValue; }
