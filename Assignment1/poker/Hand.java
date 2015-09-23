@@ -51,8 +51,36 @@ public class Hand {
 		return checkForStraight();
 	}
 	
+	/*
+	 * Method to check whether a hand is a four of a kind or not.
+	 */
 	public boolean isFourOfAKind() {
-		return false;
+		sortByCardValue(cards);
+		System.out.println(cards);
+		int faceValue = cards.get(0).getCardIntValue();
+		int counter = 1;
+		//case where cards 1-4 have the same face value
+		for (int i = 1; i < 4; i++) {
+			if (cards.get(i).getCardIntValue() == faceValue)
+				counter++;
+			else
+				break;
+		}
+		if (counter == 4)
+			return true;
+		//case where cards 2-5 have the same face value
+		else {
+			faceValue = cards.get(1).getCardIntValue();
+			counter = 1;
+			for (int i = 2; i < 5; i++) {
+				if (cards.get(i).getCardIntValue() == faceValue)
+					counter++;
+			}
+			if (counter == 4)
+				return true;
+			else
+				return false;
+		}		
 	}
 	
 	/*
@@ -72,11 +100,9 @@ public class Hand {
 	 * The difference in value between cards in increasing order should be either 1 or 9.
 	 */
 	private boolean checkForStraight() {
-//		System.out.println(cards);
 		for (int i = 0; i < 4; i++) {
 			int first = cards.get(i).getCardIntValue();
 			int second = cards.get(i+1).getCardIntValue();
-//			System.out.println(second + "-" + first + "=" + (second - first));
 			if ((second - first) != 1) {
 				if ((second - first) == 9) {
 					if (!(second == 13) && !(first == 13))

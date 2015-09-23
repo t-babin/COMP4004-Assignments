@@ -79,6 +79,9 @@ public class TestHand {
 		
 		h.setHand(new Card("Ace", "Hearts"), new Card("King", "Diamonds"), new Card("King", "Clubs"), new Card("King", "Hearts"), new Card("Six", "Hearts"));
 		assertFalse(h.isFourOfAKind());
+		
+		h.setHand(new Card("Six", "Hearts"), new Card("Six", "Diamonds"), new Card("Six", "Spades"), new Card("Six", "Clubs"), new Card("Ace", "Clubs"));
+		assertTrue(h.isFourOfAKind());
 	}
 
 }
