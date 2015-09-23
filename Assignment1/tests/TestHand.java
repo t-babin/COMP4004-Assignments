@@ -113,5 +113,14 @@ public class TestHand {
 		h.setHand(new Card("Nine", "Clubs"), new Card("Three", "Hearts"), new Card("Four", "Diamonds"), new Card("Five", "Spades"), new Card("Six", "Hearts"));
 		assertFalse(h.isStraight());
 	}
+	
+	@Test
+	public void testThreeOfAKind() {
+		h.setHand(new Card("Two", "Spades"), new Card("Two", "Clubs"), new Card("Two", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		assertTrue(h.isThreeOfAKind());
+		
+		h.setHand(new Card("Nine", "Spades"), new Card("Two", "Clubs"), new Card("Two", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		assertFalse(h.isThreeOfAKind());
+	}
 
 }

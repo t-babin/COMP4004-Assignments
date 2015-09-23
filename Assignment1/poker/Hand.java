@@ -147,6 +147,13 @@ public class Hand {
 	}
 	
 	/*
+	 * Checks whether a hand is a three of a kind or not.
+	 */
+	public boolean isThreeOfAKind() {
+		return false;
+	}
+	
+	/*
 	 * Checks if the list of cards have face values within a certain range.
 	 */
 	private boolean cardsWithinRange(int lowCard, int highCard) {
