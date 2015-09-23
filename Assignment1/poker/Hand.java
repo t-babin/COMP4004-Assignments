@@ -224,6 +224,13 @@ public class Hand {
 	}
 	
 	/*
+	 * Method to check whether any two cards in a hand are a pair.
+	 */
+	public boolean isPair() {
+		return false;
+	}
+	
+	/*
 	 * Checks if the list of cards have face values within a certain range.
 	 */
 	private boolean cardsWithinRange(int lowCard, int highCard) {
