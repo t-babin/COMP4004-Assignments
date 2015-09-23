@@ -56,7 +56,6 @@ public class Hand {
 	 */
 	public boolean isFourOfAKind() {
 		sortByCardValue(cards);
-		System.out.println(cards);
 		int faceValue = cards.get(0).getCardIntValue();
 		int counter = 1;
 		//case where cards 1-4 have the same face value
@@ -82,6 +81,13 @@ public class Hand {
 				return false;
 		}		
 	}
+	
+	/*
+	 * Method to check whether a hand is a full house or not.
+	 */
+	public boolean isFullHouse() {
+		return false;
+	}	
 	
 	/*
 	 * Checks if the list of cards have face values within a certain range.
@@ -152,5 +158,5 @@ public class Hand {
 		s = s.substring(0, s.length()-1);
 		
 		return s;
-	}	
+	}
 }

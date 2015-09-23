@@ -83,5 +83,14 @@ public class TestHand {
 		h.setHand(new Card("Six", "Hearts"), new Card("Six", "Diamonds"), new Card("Six", "Spades"), new Card("Six", "Clubs"), new Card("Ace", "Clubs"));
 		assertTrue(h.isFourOfAKind());
 	}
+	
+	@Test
+	public void testFullHouse() {
+		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
+		assertTrue(h.isFullHouse());
+		
+		h.setHand(new Card("Ten", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
+		assertFalse(h.isFullHouse());
+	}
 
 }
