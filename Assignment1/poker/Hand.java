@@ -6,6 +6,16 @@ import java.util.Comparator;
 
 public class Hand {
 	private ArrayList<Card> cards;
+	private static final int ROYAL_FLUSH = 1000;
+	private static final int STRAIGHT_FLUSH = 900;
+	private static final int FOUR_OF_A_KIND = 800;
+	private static final int FULL_HOUSE = 700;
+	private static final int FLUSH = 600;
+	private static final int STRAIGHT = 500;
+	private static final int THREE_OF_A_KIND = 400;
+	private static final int TWO_PAIR = 300;
+	private static final int PAIR = 200;
+	
 	
 	public Hand() {
 		cards = new ArrayList<Card>();
@@ -322,6 +332,9 @@ public class Hand {
 	 * Method to get the "score" of a hand. Used for determining rankings.
 	 */
 	public int getHandScore() {
-		return 0;
+		int totalScore = 0;
+		if (isRoyalFlush())
+			totalScore += ROYAL_FLUSH;
+		return totalScore;
 	}
 }
