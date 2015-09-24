@@ -306,4 +306,8 @@ public class Hand {
 		
 		return s;
 	}
+
+	public boolean noDuplicates() {
+		return true;
+	}
 }
