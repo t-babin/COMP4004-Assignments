@@ -11,11 +11,11 @@ public class TestPlayerName {
 	@Test
 	public void testPlayerName() {
 		Player p = new Player();
-		assertTrue(p.setName("Player1"));
+		assertTrue(p.validName("Player1"));
 		
-		assertFalse(p.setName("Player 1"));
+		assertFalse(p.validName("Player 1"));
 		
-		assertFalse(p.setName("P!layer1"));
+		assertFalse(p.validName("P!layer1"));
 	}
 
 }

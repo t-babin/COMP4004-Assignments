@@ -5,10 +5,17 @@ public class Player {
 	
 	public Player() {
 		playerName = "";
-		setName(playerName);
+		validName(playerName);
+	}
+	
+	public Player(String name) {
+		if (validName(name))
+			playerName = name;
+		else
+			playerName = "user";
 	}
 
-	public boolean setName(String name) {
+	public boolean validName(String name) {
 		if (name.contains(" "))
 			return false;
 		for (int i = 0; i < name.length(); i++) {
