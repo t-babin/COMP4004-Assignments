@@ -1,4 +1,4 @@
-package tests;
+package tests.card;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package tests;
+package tests.hand;
 
 import static org.junit.Assert.*;
 
