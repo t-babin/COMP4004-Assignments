@@ -19,19 +19,19 @@ public class TestPair {
 	
 	@Test
 	public void testPair() {
-		h.setHand(new Card("Two", "Spades"), new Card("Two", "Clubs"), new Card("Three", "Diamonds"), new Card("Ace", "Clubs"), new Card("Ten", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("TwoClubs"), new Card("ThreeDiamonds"), new Card("AceClubs"), new Card("TenSpades"));
 		assertTrue(h.isPair());
 		
-		h.setHand(new Card("Two", "Spades"), new Card("Nine", "Clubs"), new Card("Four", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("NineClubs"), new Card("FourDiamonds"), new Card("AceClubs"), new Card("FourSpades"));
 		assertTrue(h.isPair());
 		
-		h.setHand(new Card("Two", "Spades"), new Card("Nine", "Clubs"), new Card("Four", "Diamonds"), new Card("Ace", "Clubs"), new Card("Nine", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("NineClubs"), new Card("FourDiamonds"), new Card("AceClubs"), new Card("NineSpades"));
 		assertTrue(h.isPair());
 		
-		h.setHand(new Card("Two", "Spades"), new Card("Seven", "Clubs"), new Card("Ace", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("SevenClubs"), new Card("AceDiamonds"), new Card("AceClubs"), new Card("FourSpades"));
 		assertTrue(h.isPair());
 		
-		h.setHand(new Card("Two", "Spades"), new Card("Four", "Clubs"), new Card("Six", "Diamonds"), new Card("Ace", "Clubs"), new Card("Eight", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("FourClubs"), new Card("SixDiamonds"), new Card("AceClubs"), new Card("EightSpades"));
 		assertFalse(h.isPair());
 	}
 

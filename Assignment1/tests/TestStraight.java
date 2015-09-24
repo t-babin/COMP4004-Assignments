@@ -19,10 +19,10 @@ public class TestStraight {
 	
 	@Test
 	public void testStraight() {
-		h.setHand(new Card("Two", "Clubs"), new Card("Three", "Hearts"), new Card("Four", "Diamonds"), new Card("Five", "Spades"), new Card("Six", "Hearts"));
+		h.setHand(new Card("TwoClubs"), new Card("ThreeHearts"), new Card("FourDiamonds"), new Card("FiveSpades"), new Card("SixHearts"));
 		assertTrue(h.isStraight());
 		
-		h.setHand(new Card("Nine", "Clubs"), new Card("Three", "Hearts"), new Card("Four", "Diamonds"), new Card("Five", "Spades"), new Card("Six", "Hearts"));
+		h.setHand(new Card("NineClubs"), new Card("ThreeHearts"), new Card("FourDiamonds"), new Card("FiveSpades"), new Card("SixHearts"));
 		assertFalse(h.isStraight());
 	}
 

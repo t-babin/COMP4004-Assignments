@@ -19,10 +19,10 @@ public class TestFlush {
 	
 	@Test
 	public void testFlush() {
-		h.setHand(new Card("Ace", "Hearts"), new Card("Ten", "Hearts"), new Card("Five", "Hearts"), new Card("Two", "Hearts"), new Card("King", "Hearts"));
+		h.setHand(new Card("AceHearts"), new Card("TenHearts"), new Card("FiveHearts"), new Card("TwoHearts"), new Card("KingHearts"));
 		assertTrue(h.isFlush());
 		
-		h.setHand(new Card("Ace", "Hearts"), new Card("Ten", "Clubs"), new Card("Four", "Spades"), new Card("Two", "Hearts"), new Card("King", "Hearts"));
+		h.setHand(new Card("AceHearts"), new Card("TenClubs"), new Card("FourSpades"), new Card("TwoHearts"), new Card("KingHearts"));
 		assertFalse(h.isFlush());
 	}
 

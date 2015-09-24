@@ -8,15 +8,10 @@ public class Card {
 	private int cardIntValue; //The Card's Face Value as an integer from 1-13, Two being the lowest and Ace being the highest.
 	private String cardSuit; // The Card's Suit
 	private ArrayList<String> validCardVals = new ArrayList<String>(Arrays.asList("Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"));
-
-	public Card(String value, String suit) {
-		cardValue = value;
-		cardSuit = suit;
-		cardIntValue = validCardVals.indexOf(cardValue) + 1;
-	}
+	private ArrayList<String> validCardSuits = new ArrayList<String>(Arrays.asList("Clubs", "Diamonds", "Hearts", "Spades"));
 
 	public Card(String input) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public int getCardIntValue() { return cardIntValue; }
@@ -30,4 +25,8 @@ public class Card {
 	public void setCardSuit(String cardSuit) { this.cardSuit = cardSuit; }
 
 	public String toString() { return cardValue + cardSuit + "(" + cardIntValue + ")"; }
+
+	public boolean isValidInput() {
+		return true;
+	}
 }

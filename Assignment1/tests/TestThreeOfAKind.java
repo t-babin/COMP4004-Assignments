@@ -19,16 +19,16 @@ public class TestThreeOfAKind {
 	
 	@Test
 	public void testThreeOfAKind() {
-		h.setHand(new Card("Two", "Spades"), new Card("Two", "Clubs"), new Card("Two", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("TwoClubs"), new Card("TwoDiamonds"), new Card("AceClubs"), new Card("FourSpades"));
 		assertTrue(h.isThreeOfAKind());
 		
-		h.setHand(new Card("Two", "Spades"), new Card("Three", "Clubs"), new Card("Three", "Diamonds"), new Card("Three", "Clubs"), new Card("Four", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("ThreeClubs"), new Card("ThreeDiamonds"), new Card("ThreeClubs"), new Card("FourSpades"));
 		assertTrue(h.isThreeOfAKind());
 		
-		h.setHand(new Card("Two", "Spades"), new Card("Three", "Clubs"), new Card("Five", "Diamonds"), new Card("Five", "Clubs"), new Card("Five", "Spades"));
+		h.setHand(new Card("TwoSpades"), new Card("ThreeClubs"), new Card("FiveDiamonds"), new Card("FiveClubs"), new Card("FiveSpades"));
 		assertTrue(h.isThreeOfAKind());
 		
-		h.setHand(new Card("Nine", "Spades"), new Card("Two", "Clubs"), new Card("Two", "Diamonds"), new Card("Ace", "Clubs"), new Card("Four", "Spades"));
+		h.setHand(new Card("NineSpades"), new Card("TwoClubs"), new Card("TwoDiamonds"), new Card("AceClubs"), new Card("FourSpades"));
 		assertFalse(h.isThreeOfAKind());
 	}
 

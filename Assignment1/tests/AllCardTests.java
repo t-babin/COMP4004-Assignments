@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ AllHandTests.class, AllCardTests.class })
-public class AllTests {
+@SuiteClasses({ TestCardInputLength.class, TestCardValues.class })
+public class AllCardTests {
 
 }

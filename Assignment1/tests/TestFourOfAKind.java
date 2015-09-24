@@ -19,13 +19,13 @@ public class TestFourOfAKind {
 
 	@Test
 	public void testFourOfAKind() {
-		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("Ace", "Clubs"), new Card("Six", "Clubs"));
+		h.setHand(new Card("AceHearts"), new Card("AceDiamonds"), new Card("AceSpades"), new Card("AceClubs"), new Card("SixClubs"));
 		assertTrue(h.isFourOfAKind());
 		
-		h.setHand(new Card("Ace", "Hearts"), new Card("King", "Diamonds"), new Card("King", "Clubs"), new Card("King", "Hearts"), new Card("Six", "Hearts"));
+		h.setHand(new Card("AceHearts"), new Card("KingDiamonds"), new Card("KingClubs"), new Card("KingHearts"), new Card("SixHearts"));
 		assertFalse(h.isFourOfAKind());
 		
-		h.setHand(new Card("Six", "Hearts"), new Card("Six", "Diamonds"), new Card("Six", "Spades"), new Card("Six", "Clubs"), new Card("Ace", "Clubs"));
+		h.setHand(new Card("SixHearts"), new Card("SixDiamonds"), new Card("SixSpades"), new Card("SixClubs"), new Card("AceClubs"));
 		assertTrue(h.isFourOfAKind());
 	}
 

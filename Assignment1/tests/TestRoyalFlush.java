@@ -20,19 +20,19 @@ public class TestRoyalFlush {
 	@Test
 	public void testRoyalFlush() {
 		//Test for royal flush w/ hearts
-		h.setHand(new Card("Ten", "Hearts"), new Card("Jack", "Hearts"), new Card("Queen", "Hearts"), new Card("King", "Hearts"), new Card("Ace", "Hearts"));
+		h.setHand(new Card("TenHearts"), new Card("JackHearts"), new Card("QueenHearts"), new Card("KingHearts"), new Card("AceHearts"));
 		assertTrue(h.isRoyalFlush());
 		//test for royal flush w/ diamonds
-		h.setHand(new Card("Ten", "Diamonds"), new Card("Jack", "Diamonds"), new Card("Queen", "Diamonds"), new Card("King", "Diamonds"), new Card("Ace", "Diamonds"));
+		h.setHand(new Card("TenDiamonds"), new Card("JackDiamonds"), new Card("QueenDiamonds"), new Card("KingDiamonds"), new Card("AceDiamonds"));
 		assertTrue(h.isRoyalFlush());
 		//test for royal flush w/ spades
-		h.setHand(new Card("Ten", "Spades"), new Card("Jack", "Spades"), new Card("Queen", "Spades"), new Card("King", "Spades"), new Card("Ace", "Spades"));
+		h.setHand(new Card("TenSpades"), new Card("JackSpades"), new Card("QueenSpades"), new Card("KingSpades"), new Card("AceSpades"));
 		assertTrue(h.isRoyalFlush());
 		//test for royal flush w/ clubs
-		h.setHand(new Card("Ten", "Clubs"), new Card("Jack", "Clubs"), new Card("Queen", "Clubs"), new Card("King", "Clubs"), new Card("Ace", "Clubs"));
+		h.setHand(new Card("TenClubs"), new Card("JackClubs"), new Card("QueenClubs"), new Card("KingClubs"), new Card("AceClubs"));
 		assertTrue(h.isRoyalFlush());
 		//test to see that this hand is NOT a royal flush
-		h.setHand(new Card("One", "Clubs"), new Card("Two", "Diamonds"), new Card("Two", "Spades"), new Card("King", "Clubs"), new Card("Six", "Hearts"));
+		h.setHand(new Card("AceClubs"), new Card("TwoDiamonds"), new Card("TwoSpades"), new Card("KingClubs"), new Card("SixHearts"));
 		assertFalse(h.isRoyalFlush());
 	}
 

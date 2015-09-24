@@ -19,13 +19,13 @@ public class TestFullHouse {
 	
 	@Test
 	public void testFullHouse() {
-		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
+		h.setHand(new Card("AceHearts"), new Card("AceDiamonds"), new Card("AceSpades"), new Card("KingClubs"), new Card("KingDiamonds"));
 		assertTrue(h.isFullHouse());
 		
-		h.setHand(new Card("Ace", "Hearts"), new Card("Ace", "Diamonds"), new Card("King", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
+		h.setHand(new Card("AceHearts"), new Card("AceDiamonds"), new Card("KingSpades"), new Card("KingClubs"), new Card("KingDiamonds"));
 		assertTrue(h.isFullHouse());
 		
-		h.setHand(new Card("Ten", "Hearts"), new Card("Ace", "Diamonds"), new Card("Ace", "Spades"), new Card("King", "Clubs"), new Card("King", "Diamonds"));
+		h.setHand(new Card("TenHearts"), new Card("AceDiamonds"), new Card("AceSpades"), new Card("KingClubs"), new Card("KingDiamonds"));
 		assertFalse(h.isFullHouse());
 	}
 
