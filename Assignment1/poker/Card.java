@@ -35,6 +35,8 @@ public class Card {
 	public boolean isValidInput() {
 		if (tmpInput.length() < MIN_INPUT_LENGTH || tmpInput.length() > MAX_INPUT_VALUE)
 			return false;
+		if (!Character.isUpperCase(tmpInput.charAt(0)))
+			return false;
 		return true;
 	}
 }
