@@ -42,11 +42,39 @@ public class Game {
 	}
 
 	public void addPlayer(Player player) {
-		
+		if (players == null) {
+			players = new Player[1];
+			players[0] = player;
+		}
+		else {
+			Player tmp[] = new Player[players.length + 1];
+			for (int i = 0; i < players.length; i++) {
+				tmp[i] = players[i];
+			}
+			tmp[players.length] = player;
+			players = tmp;
+		}
 	}
 
 	public boolean uniquePlayers() {
-		return false;
+		//case where only 2 players
+		if (amountOfPlayers() == 2) {
+			if (players[0].getName().equals(players[1].getName()))
+				return false;
+		}
+		//case where 3 players
+		else if (amountOfPlayers() == 3) {
+			if (players[0].getName().equals(players[1].getName()) || players[0].getName().equals(players[2].getName()) || players[1].getName().equals(players[2].getName()))
+				return false;
+		}
+		//case where 4 players
+		else if (amountOfPlayers() == 4) {
+			if (players[0].getName().equals(players[1].getName()) || players[0].getName().equals(players[2].getName())
+					|| players[0].getName().equals(players[3].getName()) || players[1].getName().equals(players[2].getName()) || players[1].getName().equals(players[3].getName())
+					|| players[2].getName().equals(players[3].getName()))
+				return false;
+		}
+		return true;
 	}
 
 }

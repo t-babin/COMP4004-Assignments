@@ -25,4 +25,8 @@ public class Player {
 		playerName = name;
 		return true;
 	}
+
+	public String getName() {
+		return playerName;
+	}
 }
