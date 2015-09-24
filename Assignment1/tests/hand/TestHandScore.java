@@ -106,5 +106,13 @@ public class TestHandScore {
 			}			
 		}
 	}
+	
+	@Test
+	public void testFlushScore() {
+		Hand h1 = new Hand(new Card("AceSpades"), new Card("TenSpades"), new Card("SevenSpades"), new Card("SixSpades"), new Card("TwoSpades"));
+		Hand h2 = new Hand(new Card("KingSpades"), new Card("JackSpades"), new Card("NineSpades"), new Card("EightSpades"), new Card("TwoSpades"));
+		
+		assertTrue(h1.toString() + "(" + h1.getHandScore() + "), [" + h2.toString() + "](" + h2.getHandScore() + ")", h1.getHandScore() > h2.getHandScore());
+	}
 
 }
