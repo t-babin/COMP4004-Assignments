@@ -358,6 +358,18 @@ public class Hand {
 			totalScore = FULL_HOUSE + addToScore();
 			return totalScore;
 		}
+		else if (isFlush()) {
+			sortByCardValue();
+			totalScore = FLUSH;
+			totalScore += cards.get(4).getCardIntValue() * 10;
+			totalScore += cards.get(3).getCardIntValue() * 4;
+			totalScore += cards.get(2).getCardIntValue() * 3;
+			totalScore += cards.get(1).getCardIntValue() * 2;
+			totalScore += cards.get(0).getCardIntValue() * 1;
+//			for (int i = 0; i < 4; i++)
+//				totalScore += cards.get(i).getCardIntValue() * (10-((cards.size()-1)-i));
+			return totalScore;
+		}
 		return totalScore;
 	}
 	
