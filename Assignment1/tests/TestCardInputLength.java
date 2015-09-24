@@ -14,8 +14,14 @@ public class TestCardInputLength {
 	}
 
 	@Test
-	public void testCardInputLength() {
+	public void testCardInputLengthShort() {
 		Card c = new Card("Two");
+		assertFalse(c.isValidInput());
+	}
+	
+	@Test
+	public void testCardInputLengthLong() {
+		Card c = new Card("Twothreefourfivesix");
 		assertFalse(c.isValidInput());
 	}
 
