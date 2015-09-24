@@ -59,4 +59,41 @@ public class Card {
 		
 		return true;
 	}
+
+	//eclipse generated hashCode
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((cardSuit == null) ? 0 : cardSuit.hashCode());
+		result = prime * result
+				+ ((cardValue == null) ? 0 : cardValue.hashCode());
+		return result;
+	}
+
+	//eclipse generated equals method
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Card other = (Card) obj;
+		if (cardSuit == null) {
+			if (other.cardSuit != null)
+				return false;
+		} else if (!cardSuit.equals(other.cardSuit))
+			return false;
+		if (cardValue == null) {
+			if (other.cardValue != null)
+				return false;
+		} else if (!cardValue.equals(other.cardValue))
+			return false;
+		return true;
+	}
+	
+	
 }

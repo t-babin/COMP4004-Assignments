@@ -295,19 +295,26 @@ public class Hand {
 			}
 		});
 	}
-	
-	public String getHand() {
-		String s = "";
-		for (Card c : cards) {
-			s += c.toString() + ",";
-		}
-		
-		s = s.substring(0, s.length()-1);
-		
-		return s;
-	}
 
+	/*
+	 * Method to check if a hand contains duplicate cards.
+	 */
 	public boolean noDuplicates() {
+		sortByCardValue();
+		for (int i = 1; i < 5; i++) {
+			if (cards.get(i).equals(cards.get(0)))
+				return false;
+		}
+		for (int i = 2; i < 5; i++) {
+			if (cards.get(i).equals(cards.get(1)))
+				return false;
+		}
+		for (int i = 3; i < 5; i++) {
+			if (cards.get(i).equals(cards.get(2)))
+				return false;
+		}
+		if (cards.get(4).equals(cards.get(3)))
+			return false;
 		return true;
 	}
 }
