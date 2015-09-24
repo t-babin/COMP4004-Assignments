@@ -6,15 +6,16 @@ import java.util.Comparator;
 
 public class Hand {
 	private ArrayList<Card> cards;
-	private static final int ROYAL_FLUSH = 1000;
-	private static final int STRAIGHT_FLUSH = 900;
-	private static final int FOUR_OF_A_KIND = 800;
-	private static final int FULL_HOUSE = 700;
-	private static final int FLUSH = 600;
-	private static final int STRAIGHT = 500;
-	private static final int THREE_OF_A_KIND = 400;
-	private static final int TWO_PAIR = 300;
-	private static final int PAIR = 200;
+	private boolean lowStraight = false;
+	private static final int ROYAL_FLUSH = 10000;
+	private static final int STRAIGHT_FLUSH = 9000;
+	private static final int FOUR_OF_A_KIND = 8000;
+	private static final int FULL_HOUSE = 7000;
+	private static final int FLUSH = 6000;
+	private static final int STRAIGHT = 5000;
+	private static final int THREE_OF_A_KIND = 4000;
+	private static final int TWO_PAIR = 3000;
+	private static final int PAIR = 2000;
 	
 	
 	public Hand() {
@@ -155,6 +156,8 @@ public class Hand {
 					//This should only happen in the case where the straight is A,2,3,4,5
 					if (!(second == 13) && !(first == 13))
 						return false;
+					else
+						lowStraight = true;
 				}
 				else
 					return false;
@@ -333,8 +336,20 @@ public class Hand {
 	 */
 	public int getHandScore() {
 		int totalScore = 0;
-		if (isRoyalFlush())
-			totalScore += ROYAL_FLUSH;
+		if (isRoyalFlush()) {
+			totalScore = ROYAL_FLUSH;
+			for (Card c : cards)
+				totalScore += c.getCardIntValue() * 10;
+			return totalScore;
+		}
+		else if (isStraightFlush()) {
+			totalScore = STRAIGHT_FLUSH;
+			for (Card c : cards)
+				totalScore += c.getCardIntValue() * 10;
+			if (lowStraight)
+				totalScore -= 130;
+			return totalScore;
+		}
 		return totalScore;
 	}
 }
