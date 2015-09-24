@@ -10,7 +10,8 @@ public class Card {
 	private ArrayList<String> validCardVals = new ArrayList<String>(Arrays.asList("Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"));
 	private ArrayList<String> validCardSuits = new ArrayList<String>(Arrays.asList("Clubs", "Diamonds", "Hearts", "Spades"));
 	private String tmpInput;
-	private final int MIN_INPUT_VALUE = 8;
+	private static final int MIN_INPUT_LENGTH = 8;
+	private static final int MAX_INPUT_VALUE = 13;
 
 	public Card(String input) {
 		tmpInput = input;
@@ -32,7 +33,7 @@ public class Card {
 	public String toString() { return cardValue + cardSuit + "(" + cardIntValue + ")"; }
 
 	public boolean isValidInput() {
-		if (tmpInput.length() < MIN_INPUT_VALUE)
+		if (tmpInput.length() < MIN_INPUT_LENGTH || tmpInput.length() > MAX_INPUT_VALUE)
 			return false;
 		return true;
 	}
