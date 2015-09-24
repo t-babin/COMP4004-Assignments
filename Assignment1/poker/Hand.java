@@ -317,4 +317,11 @@ public class Hand {
 			return false;
 		return true;
 	}
+
+	/*
+	 * Method to get the "score" of a hand. Used for determining rankings.
+	 */
+	public int getHandScore() {
+		return 0;
+	}
 }
