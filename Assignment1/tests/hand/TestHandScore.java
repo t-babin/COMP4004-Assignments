@@ -79,5 +79,33 @@ public class TestHandScore {
 			}			
 		}
 	}
+	
+	@Test
+	public void testFullHouseScore() {
+		for (int i = 12; i >=0 ; i--) {
+			for (int j = 12; j >= 0; j--) {
+				Card c1 = new Card(faceValues[i] + suits[0]);
+				Card c2 = new Card(faceValues[i] + suits[1]);
+				Card c3 = new Card(faceValues[i] + suits[2]);
+				Card c4 = new Card(faceValues[j] + suits[0]);
+				Card c5 = new Card(faceValues[j] + suits[1]);
+				if (j == i) {
+					if (j == 0)
+						break;
+					else {
+						j = j-1;
+						c4 = new Card(faceValues[j] + suits[0]);
+						c5 = new Card(faceValues[j] + suits[1]);
+					}
+				}
+				h.setHand(c1, c2, c3, c4, c5);
+				System.out.println(h.toString());
+				int expectedScore = 7000;
+				for (Card c : h.getCards())
+					expectedScore += c.getCardIntValue() * 10;
+				assertEquals(h.toString(), expectedScore, h.getHandScore());
+			}			
+		}
+	}
 
 }

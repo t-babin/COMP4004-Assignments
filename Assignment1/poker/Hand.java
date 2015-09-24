@@ -341,25 +341,31 @@ public class Hand {
 	public int getHandScore() {
 		int totalScore = 0;
 		if (isRoyalFlush()) {
-			totalScore = ROYAL_FLUSH;
-			for (Card c : cards)
-				totalScore += c.getCardIntValue() * 10;
+			totalScore = ROYAL_FLUSH + addToScore();
 			return totalScore;
 		}
 		else if (isStraightFlush()) {
-			totalScore = STRAIGHT_FLUSH;
-			for (Card c : cards)
-				totalScore += c.getCardIntValue() * 10;
+			totalScore = STRAIGHT_FLUSH + addToScore();
 			if (lowStraight)
 				totalScore -= 130;
+			return totalScore;
+		}
+		else if (isFourOfAKind()) {
+			totalScore = FOUR_OF_A_KIND + addToScore();
 			return totalScore;
 		}
 		return totalScore;
 	}
 	
+	private int addToScore() {
+		int score = 0;
+		for (Card c : cards)
+			score += c.getCardIntValue() * 10;
+		return score;
+	}
+	
 	public String toString() {
-		String str = "";
-		
+		String str = "";		
 		for (Card c : cards)
 			str += c + ",";
 		str = str.substring(0, str.length()-1);
