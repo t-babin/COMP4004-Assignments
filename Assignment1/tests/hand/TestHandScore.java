@@ -2,21 +2,31 @@ package tests.hand;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import poker.*;
 
 public class TestHandScore {
+	
+	private Hand h;
+	private static String[] suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
+	private static String[] faceValues = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
+	
+	@Before
+	public void setUp() throws Exception {
+		h = new Hand();
+	}
 
 	@Test
 	public void testRoyalFlushScore() {
-		Hand h = new Hand(new Card("TenSpades"), new Card("JackSpades"), new Card("QueenSpades"), new Card("KingSpades"), new Card("AceSpades"));
+		h.setHand(new Card("TenSpades"), new Card("JackSpades"), new Card("QueenSpades"), new Card("KingSpades"), new Card("AceSpades"));
 		assertEquals(10550, h.getHandScore());
 	}
 	
 	@Test
 	public void testStraightFlushScore() {
-		Hand h = new Hand(new Card("NineHearts"), new Card("TenHearts"), new Card("JackHearts"), new Card("QueenHearts"), new Card("KingHearts"));
+		h.setHand(new Card("NineHearts"), new Card("TenHearts"), new Card("JackHearts"), new Card("QueenHearts"), new Card("KingHearts"));
 		assertEquals(9500, h.getHandScore());
 		
 		h.setHand(new Card("EightHearts"), new Card("NineHearts"), new Card("TenHearts"), new Card("JackHearts"), new Card("QueenHearts"));
@@ -42,6 +52,32 @@ public class TestHandScore {
 		
 		h.setHand(new Card("TwoHearts"), new Card("ThreeHearts"), new Card("FourHearts"), new Card("FiveHearts"), new Card("AceHearts"));
 		assertEquals(9100, h.getHandScore());
+	}
+	
+	@Test
+	public void testFourOfAKindScore() {
+		for (int i = 12; i >=0 ; i--) {
+			for (int j = 12; j >= 0; j--) {
+				Card c1 = new Card(faceValues[i] + suits[0]);
+				Card c2 = new Card(faceValues[i] + suits[1]);
+				Card c3 = new Card(faceValues[i] + suits[2]);
+				Card c4 = new Card(faceValues[i] + suits[3]);
+				Card c5 = new Card(faceValues[j] + suits[0]);
+				if (j == i) {
+					if (j == 0)
+						break;
+					else {
+						j = j-1;
+						c5 = new Card(faceValues[j] + suits[0]);
+					}
+				}
+				h.setHand(c1, c2, c3, c4, c5);
+				int expectedScore = 8000;
+				for (Card c : h.getCards())
+					expectedScore += c.getCardIntValue() * 10;
+				assertEquals(h.toString(), expectedScore, h.getHandScore());
+			}			
+		}
 	}
 
 }

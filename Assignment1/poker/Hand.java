@@ -6,6 +6,10 @@ import java.util.Comparator;
 
 public class Hand {
 	private ArrayList<Card> cards;
+	public ArrayList<Card> getCards() {
+		return cards;
+	}
+
 	private boolean lowStraight = false;
 	private static final int ROYAL_FLUSH = 10000;
 	private static final int STRAIGHT_FLUSH = 9000;
@@ -351,5 +355,14 @@ public class Hand {
 			return totalScore;
 		}
 		return totalScore;
+	}
+	
+	public String toString() {
+		String str = "";
+		
+		for (Card c : cards)
+			str += c + ",";
+		str = str.substring(0, str.length()-1);
+		return str;
 	}
 }
