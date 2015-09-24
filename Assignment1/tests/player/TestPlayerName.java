@@ -12,6 +12,10 @@ public class TestPlayerName {
 	public void testPlayerName() {
 		Player p = new Player();
 		assertTrue(p.setName("Player1"));
+		
+		assertFalse(p.setName("Player 1"));
+		
+		assertFalse(p.setName("P!layer1"));
 	}
 
 }
