@@ -111,7 +111,7 @@ public class TestHandScore {
 	public void testFlushScore() {
 		Hand h1 = new Hand(new Card("AceSpades"), new Card("KingSpades"), new Card("FourSpades"), new Card("ThreeSpades"), new Card("TwoSpades"));
 		System.out.println(h1.getHandScore() + "[" + h1.toString() + "]");
-		Hand h2 = new Hand(new Card("AceSpades"), new Card("QueenSpades"), new Card("JackSpades"), new Card("NineSpades"), new Card("EightSpades"));
+		Hand h2 = new Hand(new Card("AceSpades"), new Card("QueenSpades"), new Card("JackSpades"), new Card("TenSpades"), new Card("NineSpades"));
 		System.out.println(h2.getHandScore() + "[" + h2.toString() + "]");
 		
 		assertTrue(h1.getHandScore() > h2.getHandScore());		
