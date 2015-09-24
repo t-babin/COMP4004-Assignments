@@ -99,7 +99,6 @@ public class TestHandScore {
 					}
 				}
 				h.setHand(c1, c2, c3, c4, c5);
-				System.out.println(h.toString());
 				int expectedScore = 7000;
 				for (Card c : h.getCards())
 					expectedScore += c.getCardIntValue() * 10;

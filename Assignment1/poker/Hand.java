@@ -354,6 +354,10 @@ public class Hand {
 			totalScore = FOUR_OF_A_KIND + addToScore();
 			return totalScore;
 		}
+		else if (isFullHouse()) {
+			totalScore = FULL_HOUSE + addToScore();
+			return totalScore;
+		}
 		return totalScore;
 	}
 	
