@@ -15,9 +15,7 @@ public class Card {
 
 	public Card(String input) {
 		tmpInput = input;
-		if (isValidInput()) {
-			
-		}
+		isValidInput();
 	}
 
 	public int getCardIntValue() { return cardIntValue; }
@@ -47,6 +45,18 @@ public class Card {
 		String faceValue = tmpInput.substring(0, index);
 		if (!validCardVals.contains(faceValue))
 			return false;
+		
+		cardValue = faceValue;
+		cardIntValue = validCardVals.indexOf(cardValue) + 1;
+		
+		String suit = tmpInput.substring(index, tmpInput.length());
+		if (!Character.isUpperCase(suit.charAt(0)))
+			return false;
+		else if (!validCardSuits.contains(suit))
+			return false;
+		else
+			cardSuit = suit;
+		
 		return true;
 	}
 }
