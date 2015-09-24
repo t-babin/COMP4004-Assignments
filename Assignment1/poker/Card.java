@@ -37,6 +37,16 @@ public class Card {
 			return false;
 		if (!Character.isUpperCase(tmpInput.charAt(0)))
 			return false;
+		int index = 1;
+		while (!Character.isUpperCase(tmpInput.charAt(index))) {
+			if (index < tmpInput.length()-1)
+				index++;
+			else
+				return false;
+		}
+		String faceValue = tmpInput.substring(0, index);
+		if (!validCardVals.contains(faceValue))
+			return false;
 		return true;
 	}
 }
