@@ -21,37 +21,37 @@ public class TestHandScore {
 	@Test
 	public void testRoyalFlushScore() {
 		h.setHand(new Card("TenSpades"), new Card("JackSpades"), new Card("QueenSpades"), new Card("KingSpades"), new Card("AceSpades"));
-		assertEquals(10550, h.getHandScore());
+		assertEquals(10550, h.getHandScore(), 0.0);
 	}
 	
 	@Test
 	public void testStraightFlushScore() {
 		h.setHand(new Card("NineHearts"), new Card("TenHearts"), new Card("JackHearts"), new Card("QueenHearts"), new Card("KingHearts"));
-		assertEquals(9500, h.getHandScore());
+		assertEquals(9500, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("EightHearts"), new Card("NineHearts"), new Card("TenHearts"), new Card("JackHearts"), new Card("QueenHearts"));
-		assertEquals(9450, h.getHandScore());
+		assertEquals(9450, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("SevenHearts"), new Card("EightHearts"), new Card("NineHearts"), new Card("TenHearts"), new Card("JackHearts"));
-		assertEquals(9400, h.getHandScore());
+		assertEquals(9400, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("SixHearts"), new Card("SevenHearts"), new Card("EightHearts"), new Card("NineHearts"), new Card("TenHearts"));
-		assertEquals(9350, h.getHandScore());
+		assertEquals(9350, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("FiveHearts"), new Card("SixHearts"), new Card("SevenHearts"), new Card("EightHearts"), new Card("NineHearts"));
-		assertEquals(9300, h.getHandScore());
+		assertEquals(9300, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("FourHearts"), new Card("FiveHearts"), new Card("SixHearts"), new Card("SevenHearts"), new Card("EightHearts"));
-		assertEquals(9250, h.getHandScore());
+		assertEquals(9250, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("ThreeHearts"), new Card("FourHearts"), new Card("FiveHearts"), new Card("SixHearts"), new Card("SevenHearts"));
-		assertEquals(9200, h.getHandScore());
+		assertEquals(9200, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("TwoHearts"), new Card("ThreeHearts"), new Card("FourHearts"), new Card("FiveHearts"), new Card("SixHearts"));
-		assertEquals(9150, h.getHandScore());
+		assertEquals(9150, h.getHandScore(), 0.0);
 		
 		h.setHand(new Card("TwoHearts"), new Card("ThreeHearts"), new Card("FourHearts"), new Card("FiveHearts"), new Card("AceHearts"));
-		assertEquals(9100, h.getHandScore());
+		assertEquals(9100, h.getHandScore(), 0.0);
 	}
 	
 	@Test
@@ -75,7 +75,7 @@ public class TestHandScore {
 				int expectedScore = 8000;
 				for (Card c : h.getCards())
 					expectedScore += c.getCardIntValue() * 10;
-				assertEquals(h.toString(), expectedScore, h.getHandScore());
+				assertEquals(h.toString(), expectedScore, h.getHandScore(), 0.0);
 			}			
 		}
 	}
@@ -102,7 +102,7 @@ public class TestHandScore {
 				int expectedScore = 7000;
 				for (Card c : h.getCards())
 					expectedScore += c.getCardIntValue() * 10;
-				assertEquals(h.toString(), expectedScore, h.getHandScore());
+				assertEquals(h.toString(), expectedScore, h.getHandScore(), 0.0);
 			}			
 		}
 	}

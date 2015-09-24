@@ -15,7 +15,7 @@ public class Hand {
 	private static final int STRAIGHT_FLUSH = 9000;
 	private static final int FOUR_OF_A_KIND = 8000;
 	private static final int FULL_HOUSE = 7000;
-	private static final int FLUSH = 6000;
+	private static final float FLUSH = 6.0f;
 	private static final int STRAIGHT = 5000;
 	private static final int THREE_OF_A_KIND = 4000;
 	private static final int TWO_PAIR = 3000;
@@ -338,8 +338,8 @@ public class Hand {
 	/*
 	 * Method to get the "score" of a hand. Used for determining rankings.
 	 */
-	public int getHandScore() {
-		int totalScore = 0;
+	public float getHandScore() {
+		float totalScore = 0;
 		if (isRoyalFlush()) {
 			totalScore = ROYAL_FLUSH + addToScore();
 			return totalScore;
@@ -361,11 +361,11 @@ public class Hand {
 		else if (isFlush()) {
 			sortByCardValue();
 			totalScore = FLUSH;
-			totalScore += cards.get(4).getCardIntValue() * 10;
-			totalScore += cards.get(3).getCardIntValue() * 4;
-			totalScore += cards.get(2).getCardIntValue() * 3;
-			totalScore += cards.get(1).getCardIntValue() * 2;
-			totalScore += cards.get(0).getCardIntValue() * 1;
+			totalScore += cards.get(4).getCardIntValue() * 0.01;
+			totalScore += cards.get(3).getCardIntValue() * 0.001;
+			totalScore += cards.get(2).getCardIntValue() * 0.0001;
+			totalScore += cards.get(1).getCardIntValue() * 0.00001;
+			totalScore += cards.get(0).getCardIntValue() * 0.000001;
 //			for (int i = 0; i < 4; i++)
 //				totalScore += cards.get(i).getCardIntValue() * (10-((cards.size()-1)-i));
 			return totalScore;
