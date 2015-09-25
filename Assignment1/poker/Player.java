@@ -27,17 +27,11 @@ public class Player {
 		return true;
 	}
 
-	public String getName() {
-		return playerName;
-	}
+	public String getName() { return playerName; }
 
-	public void giveHand(Hand hand) {
-		this.hand = hand;
-	}
+	public void giveHand(Hand hand) { this.hand = hand; }
 
-	public Hand getHand() {
-		return this.hand;
-	}
+	public Hand getHand() { return this.hand; }
 
 	//eclipse-generated method
 	@Override
@@ -71,5 +65,10 @@ public class Player {
 		} else if (!playerName.equals(other.playerName))
 			return false;
 		return true;
+	}
+
+	public float getHandScore() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
