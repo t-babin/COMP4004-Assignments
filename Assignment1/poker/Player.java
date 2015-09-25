@@ -33,4 +33,9 @@ public class Player {
 	public void giveHand(Hand hand) {
 		// TODO Auto-generated method stub
 	}
+
+	public Hand getHand() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
