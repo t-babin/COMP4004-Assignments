@@ -68,7 +68,6 @@ public class Player {
 	}
 
 	public float getHandScore() {
-		// TODO Auto-generated method stub
-		return 0;
+		return hand.getHandScore();
 	}
 }

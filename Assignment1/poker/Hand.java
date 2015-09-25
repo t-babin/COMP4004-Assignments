@@ -23,7 +23,7 @@ public class Hand {
 	private static final float THREE_OF_A_KIND = 4.0f;
 	private static final float TWO_PAIR = 3.0f;
 	private static final float PAIR = 2.0f;
-	float totalScore = 0;	
+	private float totalScore = 0;	
 	
 	public Hand() {
 		cards = new ArrayList<Card>();
