@@ -353,6 +353,7 @@ public class Hand {
 			}
 		}
 		Collections.reverse(nonDuplicates);
+		Collections.reverse(toReturn);
 		toReturn.addAll(nonDuplicates);
 		Collections.reverse(toReturn);
 		
@@ -418,7 +419,10 @@ public class Hand {
 		}
 		else if (isThreeOfAKind()) {		
 			totalScore = THREE_OF_A_KIND + addToScore(sortByCardFrequency());
-			System.out.println(totalScore);
+			return totalScore;
+		}
+		else if (isTwoPair()) {
+			totalScore = TWO_PAIR + addToScore(sortByCardFrequency());
 			return totalScore;
 		}
 		return totalScore;
