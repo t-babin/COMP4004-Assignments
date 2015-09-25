@@ -2,6 +2,7 @@ package poker;
 
 public class Player {
 	private String playerName;
+	private Hand hand = null;
 	
 	public Player() {
 		playerName = "";
@@ -31,11 +32,10 @@ public class Player {
 	}
 
 	public void giveHand(Hand hand) {
-		// TODO Auto-generated method stub
+		this.hand = hand;
 	}
 
 	public Hand getHand() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.hand;
 	}
 }
