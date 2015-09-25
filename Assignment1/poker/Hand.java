@@ -11,15 +11,15 @@ public class Hand {
 	}
 
 	private boolean lowStraight = false;
-	private static final int ROYAL_FLUSH = 10000;
-	private static final int STRAIGHT_FLUSH = 9000;
-	private static final int FOUR_OF_A_KIND = 8000;
-	private static final int FULL_HOUSE = 7000;
+	private static final float ROYAL_FLUSH = 10.0f;
+	private static final float STRAIGHT_FLUSH = 9.0f;
+	private static final float FOUR_OF_A_KIND = 8.0f;
+	private static final float FULL_HOUSE = 7.0f;
 	private static final float FLUSH = 6.0f;
-	private static final int STRAIGHT = 5000;
-	private static final int THREE_OF_A_KIND = 4000;
-	private static final int TWO_PAIR = 3000;
-	private static final int PAIR = 2000;
+	private static final float STRAIGHT = 5.0f;
+	private static final float THREE_OF_A_KIND = 4.0f;
+	private static final float TWO_PAIR = 3.0f;
+	private static final float PAIR = 2.0f;
 	
 	
 	public Hand() {
@@ -299,6 +299,7 @@ public class Hand {
 			cards.add(card4);
 			cards.add(card5);
 		}
+		sortByCardValue();
 	}
 	
 	/*
@@ -347,7 +348,7 @@ public class Hand {
 		else if (isStraightFlush()) {
 			totalScore = STRAIGHT_FLUSH + addToScore();
 			if (lowStraight)
-				totalScore -= 130;
+				totalScore -= 0.13;
 			return totalScore;
 		}
 		else if (isFourOfAKind()) {
@@ -360,23 +361,31 @@ public class Hand {
 		}
 		else if (isFlush()) {
 			sortByCardValue();
-			totalScore = FLUSH;
-			totalScore += cards.get(4).getCardIntValue() * 0.01;
-			totalScore += cards.get(3).getCardIntValue() * 0.001;
-			totalScore += cards.get(2).getCardIntValue() * 0.0001;
-			totalScore += cards.get(1).getCardIntValue() * 0.00001;
-			totalScore += cards.get(0).getCardIntValue() * 0.000001;
-//			for (int i = 0; i < 4; i++)
-//				totalScore += cards.get(i).getCardIntValue() * (10-((cards.size()-1)-i));
+			totalScore = FLUSH + addToScore();
+			return totalScore;
+		}
+		else if (isStraight()) {
+			sortByCardValue();
+			totalScore = STRAIGHT + addToScore();
+			if (lowStraight)
+				totalScore -= 0.13;
+			return totalScore;
+		}
+		else if (isThreeOfAKind()) {
+			sortByCardValue();
+			totalScore = THREE_OF_A_KIND + addToScore();
 			return totalScore;
 		}
 		return totalScore;
 	}
 	
-	private int addToScore() {
-		int score = 0;
-		for (Card c : cards)
-			score += c.getCardIntValue() * 10;
+	private float addToScore() {
+		float score = 0.0f;
+		score += cards.get(4).getCardIntValue() * 0.01f;
+		score += cards.get(3).getCardIntValue() * 0.001f;
+		score += cards.get(2).getCardIntValue() * 0.0001f;
+		score += cards.get(1).getCardIntValue() * 0.00001f;
+		score += cards.get(0).getCardIntValue() * 0.000001f;
 		return score;
 	}
 	
