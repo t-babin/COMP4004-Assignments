@@ -29,4 +29,8 @@ public class Player {
 	public String getName() {
 		return playerName;
 	}
+
+	public void giveHand(Hand hand) {
+		// TODO Auto-generated method stub
+	}
 }
