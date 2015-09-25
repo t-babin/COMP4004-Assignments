@@ -2,6 +2,7 @@ package poker;
 
 public class Game {
 	private Player[] players = null;
+	private Player[] playersByRank = null;
 
 	public Game() {
 		setPlayerAmount(0);
@@ -13,8 +14,10 @@ public class Game {
 
 	public void setPlayerAmount(int amount) {
 		players = new Player[amount];
-		for (int i = 0; i < amount; i++)
+		for (int i = 0; i < amount; i++) {
 			players[i] = new Player();
+		}
+		playersByRank = players;
 
 	}
 
@@ -31,6 +34,7 @@ public class Game {
 			tmp[players.length] = player;
 			players = tmp;
 		}
+		playersByRank = players;
 	}
 
 	public boolean uniquePlayers() {
@@ -60,6 +64,11 @@ public class Game {
 
 	public int getPlayerRank(Player player) {
 		return 0;
+	}
+
+	public Player[] getPlayersSorted() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
