@@ -356,7 +356,7 @@ public class Hand {
 		Collections.reverse(toReturn);
 		toReturn.addAll(nonDuplicates);
 		Collections.reverse(toReturn);
-		
+		System.out.println(toReturn);
 		return toReturn;
 	}
 
@@ -423,6 +423,11 @@ public class Hand {
 		}
 		else if (isTwoPair()) {
 			totalScore = TWO_PAIR + addToScore(sortByCardFrequency());
+			return totalScore;
+		}
+		else if (isPair()) {
+			totalScore = PAIR + addToScore(sortByCardFrequency());
+			System.out.println(totalScore);
 			return totalScore;
 		}
 		return totalScore;
