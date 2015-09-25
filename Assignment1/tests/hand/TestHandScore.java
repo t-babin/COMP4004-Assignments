@@ -113,7 +113,7 @@ public class TestHandScore {
 				tmp += h.getCards().get(0).getCardIntValue() * 0.000001f;
 				expectedScore += tmp;
 				assertEquals(h.toString(), expectedScore, h.getHandScore(), 0.0f);
-			}			
+			}
 		}
 	}
 	
@@ -138,7 +138,7 @@ public class TestHandScore {
 	@Test
 	public void testThreeOfAKindScore() {
 		Hand h1 = new Hand(new Card("TwoClubs"), new Card("TwoSpades"), new Card("TwoDiamonds"), new Card("FiveHearts"), new Card("AceDiamonds"));
-		Hand h2 = new Hand(new Card("TwoClubs"), new Card("TwoSpades"), new Card("TwoDiamonds"), new Card("FiveHearts"), new Card("SixDiamonds"));
+		Hand h2 = new Hand(new Card("TwoClubs"), new Card("TwoSpades"), new Card("TwoDiamonds"), new Card("QueenHearts"), new Card("KingDiamonds"));
 		
 		assertTrue(h1.getHandScore() > h2.getHandScore());
 		

@@ -3,6 +3,9 @@ package poker;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Hand {
 	private ArrayList<Card> cards;
@@ -313,6 +316,48 @@ public class Hand {
 			}
 		});
 	}
+	
+	/*
+	 * Sorts the card list by card frequency. Useful for pair, three of a kind, 2 pair
+	 */
+	private ArrayList<Integer> sortByCardFrequency() {
+		Map<Integer, Integer> freq = new HashMap<Integer, Integer>();
+		sortByCardValue();
+		for (int i = 0; i < cards.size(); i++) {
+			if (!freq.containsKey(cards.get(i).getCardIntValue()))
+				freq.put(cards.get(i).getCardIntValue(), 1);
+			else {
+				int tmp = freq.get(cards.get(i).getCardIntValue());
+				tmp++;
+				freq.put(cards.get(i).getCardIntValue(), tmp);
+			}
+		}
+		
+		List<Map.Entry<Integer, Integer>> l = new ArrayList<Map.Entry<Integer, Integer>>(freq.entrySet());
+		
+		Collections.sort(l, new Comparator<Map.Entry<Integer, Integer>>() {
+			public int compare(Map.Entry<Integer, Integer> c1, Map.Entry<Integer, Integer> c2) {
+				return c2.getValue().compareTo(c1.getValue());
+			}
+		});		
+		
+		ArrayList<Integer> toReturn = new ArrayList<Integer>();
+		ArrayList<Integer> nonDuplicates = new ArrayList<Integer>();
+		for (Map.Entry<Integer, Integer> e : l) {
+			if (e.getValue() > 1) {
+				for (int i = 0; i < e.getValue(); i++)
+					toReturn.add(e.getKey());
+			}
+			else {
+				nonDuplicates.add(e.getKey());
+			}
+		}
+		Collections.reverse(nonDuplicates);
+		toReturn.addAll(nonDuplicates);
+		Collections.reverse(toReturn);
+		
+		return toReturn;
+	}
 
 	/*
 	 * Method to check if a hand contains duplicate cards.
@@ -371,9 +416,9 @@ public class Hand {
 				totalScore -= 0.13;
 			return totalScore;
 		}
-		else if (isThreeOfAKind()) {
-			sortByCardValue();
-			totalScore = THREE_OF_A_KIND + addToScore();
+		else if (isThreeOfAKind()) {		
+			totalScore = THREE_OF_A_KIND + addToScore(sortByCardFrequency());
+			System.out.println(totalScore);
 			return totalScore;
 		}
 		return totalScore;
@@ -386,6 +431,16 @@ public class Hand {
 		score += cards.get(2).getCardIntValue() * 0.0001f;
 		score += cards.get(1).getCardIntValue() * 0.00001f;
 		score += cards.get(0).getCardIntValue() * 0.000001f;
+		return score;
+	}
+	
+	private float addToScore(ArrayList<Integer> list) {
+		float score = 0.0f;
+		score += list.get(4) * 0.01f;
+		score += list.get(3) * 0.001f;
+		score += list.get(2) * 0.0001f;
+		score += list.get(1) * 0.00001f;
+		score += list.get(0) * 0.000001f;
 		return score;
 	}
 	
