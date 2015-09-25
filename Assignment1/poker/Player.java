@@ -32,6 +32,8 @@ public class Player {
 	public void giveHand(Hand hand) { this.hand = hand; }
 
 	public Hand getHand() { return this.hand; }
+	
+	public float getHandScore() { return hand.getHandScore(); }
 
 	//eclipse-generated method
 	@Override
@@ -66,8 +68,5 @@ public class Player {
 			return false;
 		return true;
 	}
-
-	public float getHandScore() {
-		return hand.getHandScore();
-	}
+	
 }

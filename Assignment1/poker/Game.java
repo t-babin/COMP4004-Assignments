@@ -1,5 +1,7 @@
 package poker;
 
+import java.util.Arrays;
+
 public class Game {
 	private Player[] players = null;
 	private Player[] playersByRank = null;
@@ -67,8 +69,17 @@ public class Game {
 	}
 
 	public Player[] getPlayersSorted() {
-		// TODO Auto-generated method stub
-		return null;
+		java.util.ArrayList<Player> tmp = new java.util.ArrayList<Player>(Arrays.asList(players));
+		java.util.Collections.sort(tmp, new java.util.Comparator<Player>() {
+			public int compare(Player p1, Player p2) {
+				return Float.valueOf(p2.getHandScore()).compareTo(p1.getHandScore());
+			}
+		});
+		for (int i = 0; i < players.length; i++) {
+			playersByRank[i] = tmp.get(i);
+		}
+		
+		return playersByRank;
 	}
 
 }
