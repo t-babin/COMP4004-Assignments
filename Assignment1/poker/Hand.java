@@ -430,7 +430,10 @@ public class Hand {
 			System.out.println(totalScore);
 			return totalScore;
 		}
-		return totalScore;
+		else {
+			totalScore = addToScore();
+			return totalScore;
+		}
 	}
 	
 	private float addToScore() {
