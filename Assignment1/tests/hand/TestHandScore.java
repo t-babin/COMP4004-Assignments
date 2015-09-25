@@ -170,5 +170,13 @@ public class TestHandScore {
 		
 		assertTrue(h3.getHandScore() > h1.getHandScore());
 	}
+	
+	@Test
+	public void testHighCardScore() {
+		Hand h1 = new Hand(new Card("AceDiamonds"), new Card("TwoSpades"), new Card("FiveClubs"), new Card("NineHearts"), new Card("FourClubs"));
+		Hand h2 = new Hand(new Card("KingDiamonds"), new Card("QueenSpades"), new Card("TenClubs"), new Card("NineHearts"), new Card("EightDiamonds"));
+		
+		assertTrue(h1.getHandScore() > h2.getHandScore());
+	}
 
 }
