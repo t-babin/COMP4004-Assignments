@@ -55,8 +55,7 @@ public class Game {
 	}
 
 	public Player getPlayer(int index) {
-		
-		return null;
+		return (index < amountOfPlayers()) ? players[index] : null;
 	}
 
 	public int getPlayerRank(Player player) {

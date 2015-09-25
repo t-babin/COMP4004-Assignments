@@ -38,4 +38,38 @@ public class Player {
 	public Hand getHand() {
 		return this.hand;
 	}
+
+	//eclipse-generated method
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((hand == null) ? 0 : hand.hashCode());
+		result = prime * result
+				+ ((playerName == null) ? 0 : playerName.hashCode());
+		return result;
+	}
+
+	//eclipse-generated method
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Player other = (Player) obj;
+		if (hand == null) {
+			if (other.hand != null)
+				return false;
+		} else if (!hand.equals(other.hand))
+			return false;
+		if (playerName == null) {
+			if (other.playerName != null)
+				return false;
+		} else if (!playerName.equals(other.playerName))
+			return false;
+		return true;
+	}
 }
