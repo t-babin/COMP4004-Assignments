@@ -6,21 +6,23 @@ public class Game {
 	private Player[] players = null;
 	private Player[] playersByRank = null;
 
-	public Game() {
-		setPlayerAmount(0);
+	public Game(int amount) {
+		setPlayerAmount(amount);
 	}
 
 	public int amountOfPlayers() {
 		return players.length;
 	}
 
-	public void setPlayerAmount(int amount) {
+	public boolean setPlayerAmount(int amount) {
+		if (amount < 2 || amount > 4)
+			return false;
 		players = new Player[amount];
 		for (int i = 0; i < amount; i++) {
 			players[i] = new Player();
 		}
 		playersByRank = players;
-
+		return true;
 	}
 
 	public void addPlayer(Player player) {
@@ -80,6 +82,10 @@ public class Game {
 		}
 		
 		return playersByRank;
+	}
+
+	public boolean takeInput(String input) {
+		return false;
 	}
 
 }

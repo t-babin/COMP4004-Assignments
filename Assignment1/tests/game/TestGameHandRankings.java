@@ -10,7 +10,7 @@ public class TestGameHandRankings {
 
 	@Test
 	public void testGameHandRankingsEqual() {
-		Game g = new Game();
+		Game g = new Game(2);
 		g.addPlayer(new Player("Player1"));
 		g.getPlayer(0).giveHand(new Hand(new Card("AceHearts"), new Card("KingHearts"), new Card("QueenHearts"), new Card("JackHearts"), new Card("TenHearts")));
 		
@@ -22,7 +22,7 @@ public class TestGameHandRankings {
 	
 	@Test
 	public void testGameHandRankingsDifferentTwoPlayer() {
-		Game g = new Game();
+		Game g = new Game(2);
 		g.addPlayer(new Player("Player1"));
 		g.getPlayer(0).giveHand(new Hand(new Card("AceHearts"), new Card("KingHearts"), new Card("QueenHearts"), new Card("JackHearts"), new Card("TenHearts")));
 		

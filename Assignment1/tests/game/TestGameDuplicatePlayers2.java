@@ -11,7 +11,7 @@ public class TestGameDuplicatePlayers2 {
 
 	@Test
 	public void testDuplicatePlayers2Same() {
-		Game g = new Game();
+		Game g = new Game(2);
 		g.addPlayer(new Player("Player1"));
 		g.addPlayer(new Player("Player1"));
 		
@@ -20,7 +20,7 @@ public class TestGameDuplicatePlayers2 {
 	
 	@Test
 	public void testDuplicatePlayers2Diff() {
-		Game g1 = new Game();
+		Game g1 = new Game(2);
 		g1.addPlayer(new Player("Player1"));
 		g1.addPlayer(new Player("Player2"));
 		assertTrue(g1.uniquePlayers());
