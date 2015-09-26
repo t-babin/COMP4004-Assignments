@@ -10,7 +10,7 @@ public class TestGameGetPlayer {
 
 	@Test
 	public void testGetPlayer() {
-		Game g = new Game(2);
+		Game g = new Game();
 		Player p1 = new Player("Player1");
 		p1.giveHand(new Hand(new Card("TwoClubs"), new Card("ThreeClubs"), new Card("SixHearts"), new Card("SixSpades"), new Card("AceSpades")));
 		Player p2 = new Player("Player2");

@@ -356,7 +356,6 @@ public class Hand {
 		Collections.reverse(toReturn);
 		toReturn.addAll(nonDuplicates);
 		Collections.reverse(toReturn);
-		System.out.println(toReturn);
 		return toReturn;
 	}
 

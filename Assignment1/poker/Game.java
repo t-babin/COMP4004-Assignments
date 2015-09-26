@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 public class Game {
 	private Player[] players = null;
-	private Player[] playersByRank = null;
+//	private Player[] playersByRank = null;
 
-	public Game(int amount) {
-		setPlayerAmount(amount);
+	public Game() {
+//		setPlayerAmount(amount);
+//		players = new Player[1];
+//		playersByRank = players;
 	}
 
 	public int amountOfPlayers() {
@@ -21,7 +23,7 @@ public class Game {
 		for (int i = 0; i < amount; i++) {
 			players[i] = new Player();
 		}
-		playersByRank = players;
+//		playersByRank = players;
 		return true;
 	}
 
@@ -38,7 +40,7 @@ public class Game {
 			tmp[players.length] = player;
 			players = tmp;
 		}
-		playersByRank = players;
+//		playersByRank = players;
 	}
 
 	public boolean uniquePlayers() {
@@ -63,8 +65,10 @@ public class Game {
 	}
 	
 	private boolean isDuplicatePlayer(String name) {
-		for (Player p : players) {
-			if (name.equals(p.getName()))
+		if (players == null)
+			return false;
+		for (int i = 0; i < players.length; i++) {
+			if (name.equals(players[i].getName()))
 				return true;
 		}
 		return false;
@@ -75,10 +79,24 @@ public class Game {
 	}
 
 	public int getPlayerRank(Player player) {
+		Player[] tmp = getPlayersSorted();
+		for (int i = 0; i < tmp.length; i++) {
+			if (player.equals(tmp[i])) {
+				if (i != 0) {
+					if (player.getHandScore() == tmp[i-1].getHandScore())
+						return i;
+					else
+						return i+1;
+				}
+				else
+					return i+1;
+			}
+		}
 		return 0;
 	}
 
 	public Player[] getPlayersSorted() {
+		Player[] playersByRank = new Player[players.length];
 		java.util.ArrayList<Player> tmp = new java.util.ArrayList<Player>(Arrays.asList(players));
 		java.util.Collections.sort(tmp, new java.util.Comparator<Player>() {
 			public int compare(Player p1, Player p2) {
@@ -108,9 +126,11 @@ public class Game {
 				Hand h = new Hand(cards[0], cards[1], cards[2], cards[3], cards[4]);
 				System.out.println(h);
 				if (h.noDuplicates()) {
-					for (Player player : players) {
-						if (h.equals(player.getHand()))
-							return false;
+					if (players != null) {
+						for (Player player : players) {
+							if (h.equals(player.getHand()))
+								return false;
+						}
 					}
 					this.addPlayer(p);
 					p.giveHand(h);

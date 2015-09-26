@@ -7,10 +7,10 @@ import org.junit.runners.Suite.SuiteClasses;
 import tests.card.AllCardTests;
 import tests.game.AllGameTests;
 import tests.hand.AllHandTests;
-import tests.player.TestPlayerName;
+import tests.player.AllPlayerTests;
 
 @RunWith(Suite.class)
-@SuiteClasses({ AllHandTests.class, AllCardTests.class, AllGameTests.class, TestPlayerName.class })
+@SuiteClasses({ AllHandTests.class, AllCardTests.class, AllGameTests.class, AllPlayerTests.class })
 public class AllTests {
 
 }

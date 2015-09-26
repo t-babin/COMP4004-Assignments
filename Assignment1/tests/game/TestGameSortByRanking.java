@@ -10,7 +10,7 @@ public class TestGameSortByRanking {
 
 	@Test
 	public void testSortPlayerByRankings2Player() {
-		Game g = new Game(2);
+		Game g = new Game();
 		Player p1 = new Player("Tyler");
 		Player p2 = new Player("Tyler1");
 		p1.giveHand(new Hand(new Card("AceSpades"), new Card("AceClubs"), new Card("AceDiamonds"), new Card("AceHearts"), new Card("KingSpades")));
@@ -25,7 +25,7 @@ public class TestGameSortByRanking {
 	
 	@Test
 	public void testSortPlayerByRankings3Player() {
-		Game g = new Game(3);
+		Game g = new Game();
 		Player p1 = new Player("Tyler");
 		Player p2 = new Player("Tyler1");
 		Player p3 = new Player("Tyler2");
