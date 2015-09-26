@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		TestFullHouseScore.class, TestHighCardScore.class, TestPairScore.class,
 		TestRoyalFlushScore.class, TestStraightFlushScore.class,
 		TestStraightScore.class, TestThreeOfAKindScore.class,
-		TestTwoPairScore.class })
+		TestTwoPairScore.class, TestSampleHandScoring.class })
 public class AllHandScoreTests {
 
 }
