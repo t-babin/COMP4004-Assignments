@@ -146,4 +146,9 @@ public class Game {
 			return false;
 	}
 
+	public String getOutputString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
