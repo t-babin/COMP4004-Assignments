@@ -426,7 +426,6 @@ public class Hand {
 		}
 		else if (isPair()) {
 			totalScore = PAIR + addToScore(sortByCardFrequency());
-			System.out.println(totalScore);
 			return totalScore;
 		}
 		else {
