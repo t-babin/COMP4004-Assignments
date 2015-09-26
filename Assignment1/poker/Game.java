@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Game {
 	private Player[] players = null;
+	private int playerAmount = -1;
 //	private Player[] playersByRank = null;
 
 	public Game() {
@@ -13,17 +14,18 @@ public class Game {
 	}
 
 	public int amountOfPlayers() {
-		return players.length;
+		return (playerAmount == -1) ? players.length : playerAmount;
 	}
 
 	public boolean setPlayerAmount(int amount) {
 		if (amount < 2 || amount > 4)
 			return false;
-		players = new Player[amount];
-		for (int i = 0; i < amount; i++) {
-			players[i] = new Player();
-		}
+//		players = new Player[amount];
+//		for (int i = 0; i < amount; i++) {
+//			players[i] = new Player();
+//		}
 //		playersByRank = players;
+		playerAmount = amount;
 		return true;
 	}
 
@@ -75,7 +77,7 @@ public class Game {
 	}
 
 	public Player getPlayer(int index) {
-		return (index < amountOfPlayers()) ? players[index] : null;
+		return (index < players.length) ? players[index] : null;
 	}
 
 	public int getPlayerRank(Player player) {
@@ -148,12 +150,11 @@ public class Game {
 	public String getOutputString() {
 		String out = "";
 		Player[] p = getPlayersSorted();
-		for (int i = 0; i < amountOfPlayers(); i++) {
+		for (int i = 0; i < players.length; i++) {
 			out += p[i].toString() + " " + getPlayerRank(p[i]);
-			if (i != amountOfPlayers() - 1)
+			if (i != players.length - 1)
 				out += "\n";
 		}
-		System.out.println(out);
 		return out;
 	}
 
