@@ -10,14 +10,12 @@ public class TestCardInputCharacters {
 
 	@Test
 	public void testInputStartsWithUpper() {
-		Card c = new Card("TwoHearts");
-		assertTrue(c.isValidInput());
+		assertTrue(Card.isValidInput("TwoHearts"));
 	}
 	
 	@Test
 	public void testInputStartsWithLower() {
-		Card c = new Card("twoHearts");
-		assertFalse(c.isValidInput());
+		assertFalse(Card.isValidInput("twoHearts"));
 	}
 
 }

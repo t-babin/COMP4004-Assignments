@@ -10,14 +10,12 @@ public class TestCardSuit {
 
 	@Test
 	public void testInputContainsSuit() {
-		Card c = new Card("TwoHearts");
-		assertTrue(c.isValidInput());
+		assertTrue(Card.isValidInput("TwoHearts"));
 	}
 	
 	@Test
 	public void testInputDoesNotContainSuit() {
-		Card c = new Card("TwoShovels");
-		assertFalse(c.isValidInput());
+		assertFalse(Card.isValidInput("TwoShovels"));
 	}
 
 }

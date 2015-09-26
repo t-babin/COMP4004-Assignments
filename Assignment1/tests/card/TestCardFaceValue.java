@@ -10,14 +10,12 @@ public class TestCardFaceValue {
 
 	@Test
 	public void testInputContainsFaceValue() {
-		Card c = new Card("TwoHearts");
-		assertTrue(c.isValidInput());
+		assertTrue(Card.isValidInput("TwoHearts"));
 	}
 	
 	@Test
 	public void testInputDoesNotContainFaceValue() {
-		Card c = new Card("TtwoHearts");
-		assertFalse(c.isValidInput());
+		assertFalse(Card.isValidInput("TtwoHearts"));
 	}
 
 }

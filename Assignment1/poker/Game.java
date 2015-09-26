@@ -85,7 +85,24 @@ public class Game {
 	}
 
 	public boolean takeInput(String input) {
-		return false;
+		String[] tokens = input.split(" ");
+		if (tokens.length != 6)
+			return false;
+		Player p = new Player();
+		Card[] cards = new Card[5];
+		if (p.validName(tokens[0])) {
+			for (int i = 1; i < tokens.length-1; i++) {
+				if (Card.isValidInput(tokens[i])) {
+					cards[i] = new Card(tokens[i]);
+				}
+			}
+			p.giveHand(new Hand(cards[0], cards[1], cards[2], cards[3], cards[4]));
+			this.addPlayer(p);
+			
+			return true;
+		}
+		else
+			return false;
 	}
 
 }

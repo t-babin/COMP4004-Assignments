@@ -21,5 +21,14 @@ public class TestGameUserInput {
 		String input = "Tyler! AceSpades KingSpades QueenSpades JackSpades TenSpades";
 		assertFalse(g.takeInput(input));
 	}
+	
+	@Test
+	public void testDuplicateInput() {
+		Game g = new Game(2);
+		String input1 = "Tyler AceSpades KingSpades QueenSpades JackSpades TenSpades";
+		String input2 = "Tyler AceClubs KingClubs QueenClubs JackClubs TenClubs";
+		assertTrue(g.takeInput(input1));
+		assertFalse(g.takeInput(input2));
+	}
 
 }
