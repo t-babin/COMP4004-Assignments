@@ -12,8 +12,7 @@ public class TestGameDuplicatePlayers2 {
 	@Test
 	public void testDuplicatePlayers2Same() {
 		Game g = new Game(2);
-		g.addPlayer(new Player("Player1"));
-		g.addPlayer(new Player("Player1"));
+		g.takeInput("Tyler AceSpades KingSpades QueenSpades JackSpades TenSpades");
 		
 		assertFalse(g.uniquePlayers());	
 	}

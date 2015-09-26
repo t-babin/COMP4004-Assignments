@@ -61,6 +61,14 @@ public class Game {
 		}
 		return true;
 	}
+	
+	private boolean isDuplicatePlayer(String name) {
+		for (Player p : players) {
+			if (name.equals(p.getName()))
+				return true;
+		}
+		return false;
+	}
 
 	public Player getPlayer(int index) {
 		return (index < amountOfPlayers()) ? players[index] : null;
@@ -91,11 +99,14 @@ public class Game {
 		Player p = new Player();
 		Card[] cards = new Card[5];
 		if (p.validName(tokens[0])) {
-			for (int i = 1; i < tokens.length-1; i++) {
-				if (Card.isValidInput(tokens[i])) {
-					cards[i] = new Card(tokens[i]);
+			if (!isDuplicatePlayer(tokens[0])) {
+				for (int i = 1; i < tokens.length-1; i++) {
+					if (Card.isValidInput(tokens[i])) {
+						cards[i] = new Card(tokens[i]);
+					}
 				}
 			}
+			else return false;
 			p.giveHand(new Hand(cards[0], cards[1], cards[2], cards[3], cards[4]));
 			this.addPlayer(p);
 			
