@@ -13,6 +13,10 @@ public class TestGameUserInput {
 		Game g = new Game(2);
 		String input = "Tyler AceSpades KingSpades QueenSpades JackSpades TenSpades";
 		assertTrue(g.takeInput(input));
+		
+		assertFalse(g.takeInput(""));
+		
+		assertFalse(g.takeInput("ehwqoiehwqohewioqweqoe\neirojwreoiwjreiowjreiowjrioewjroew\n"));
 	}
 	
 	@Test

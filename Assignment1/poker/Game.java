@@ -100,19 +100,29 @@ public class Game {
 		Card[] cards = new Card[5];
 		if (p.validName(tokens[0])) {
 			if (!isDuplicatePlayer(tokens[0])) {
-				for (int i = 1; i < tokens.length-1; i++) {
-					if (Card.isValidInput(tokens[i])) {
-						cards[i] = new Card(tokens[i]);
+				for (int i = 0; i < tokens.length-1; i++) {
+					if (Card.isValidInput(tokens[i+1])) {
+						cards[i] = new Card(tokens[i+1]);
 					}
 				}
+				Hand h = new Hand(cards[0], cards[1], cards[2], cards[3], cards[4]);
+				System.out.println(h);
+				if (h.noDuplicates()) {
+					for (Player player : players) {
+						if (h.equals(player.getHand()))
+							return false;
+					}
+					this.addPlayer(p);
+					p.giveHand(h);
+					return true;
+				}
+				else
+					return false;
 			}
-			else return false;
-			p.giveHand(new Hand(cards[0], cards[1], cards[2], cards[3], cards[4]));
-			this.addPlayer(p);
-			
-			return true;
+			else 
+				return false;			
 		}
-		else
+		else 
 			return false;
 	}
 
