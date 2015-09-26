@@ -458,7 +458,7 @@ public class Hand {
 	public String toString() {
 		String str = "";		
 		for (Card c : cards)
-			str += c + ",";
+			str += c + " ";
 		str = str.substring(0, str.length()-1);
 		return str;
 	}

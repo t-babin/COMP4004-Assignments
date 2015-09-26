@@ -124,7 +124,6 @@ public class Game {
 					}
 				}
 				Hand h = new Hand(cards[0], cards[1], cards[2], cards[3], cards[4]);
-				System.out.println(h);
 				if (h.noDuplicates()) {
 					if (players != null) {
 						for (Player player : players) {
@@ -147,8 +146,15 @@ public class Game {
 	}
 
 	public String getOutputString() {
-		// TODO Auto-generated method stub
-		return null;
+		String out = "";
+		Player[] p = getPlayersSorted();
+		for (int i = 0; i < amountOfPlayers(); i++) {
+			out += p[i].toString() + " " + getPlayerRank(p[i]);
+			if (i != amountOfPlayers() - 1)
+				out += "\n";
+		}
+		System.out.println(out);
+		return out;
 	}
 
 }

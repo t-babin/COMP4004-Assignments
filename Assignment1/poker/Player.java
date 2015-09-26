@@ -34,6 +34,8 @@ public class Player {
 	public Hand getHand() { return this.hand; }
 	
 	public float getHandScore() { return hand.getHandScore(); }
+	
+	public String toString() { return playerName + " " + getHand().toString(); }
 
 	//eclipse-generated method
 	@Override

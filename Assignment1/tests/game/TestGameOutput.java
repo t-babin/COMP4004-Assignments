@@ -14,7 +14,8 @@ public class TestGameOutput {
 		g.takeInput("Tyler AceClubs KingClubs QueenClubs JackClubs TenClubs");
 		g.takeInput("Tyler1 TwoClubs TwoDiamonds TwoSpades TwoHearts TenClubs");
 		
-		String expectedOutput = "Tyler AceClubs KingClubs QueenClubs JackClubs TenClubs 1\nTyler1 TwoClubs TwoDiamonds TwoSpades TwoHearts TenClubs 2";
+		String expectedOutput = "Tyler TenClubs JackClubs QueenClubs KingClubs AceClubs 1\nTyler1 TwoClubs TwoDiamonds TwoSpades TwoHearts TenClubs 2";
+		System.out.println("EXPECTED\n" + expectedOutput);
 		
 		assertEquals(expectedOutput, g.getOutputString());
 	}
